@@ -3,8 +3,6 @@
 namespace common\modules\recipes\console\controllers;
 
 use common\modules\recipes\components\AbstractGrabber;
-use common\modules\recipes\components\ELiquidRecipesGrabber;
-use Yii;
 use yii\console\Controller;
 use yiiCustom\logger\StdoutLogger;
 
@@ -20,6 +18,7 @@ class GrabController extends Controller {
 	 */
 	public function actionIndex($sourceId) {
 		$logStream = new StdoutLogger();
+		$logStream->memoryUsageOut = false;
 
 		$grabber = AbstractGrabber::getGrabber($sourceId, $logStream);
 
@@ -28,6 +27,9 @@ class GrabController extends Controller {
 
 			return;
 		}
+
+		$grabber->isNeedToUpdateFlavors = true;
+		$grabber->useProxy = true;
 
 		$grabber->start();
 	}

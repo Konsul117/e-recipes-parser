@@ -9,4 +9,6 @@ use yiiCustom\base\Module;
  */
 class Recipes extends Module {
 
+	/** @var string[] Список прокси, используемых для парсинга */
+	public $proxyList = [];
 }

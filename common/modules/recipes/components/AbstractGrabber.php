@@ -3,8 +3,8 @@
 namespace common\modules\recipes\components;
 
 use common\modules\recipes\models\Source;
-use Psr\Log\AbstractLogger;
 use ReflectionClass;
+use Yii;
 use yiiCustom\logger\LoggerStream;
 
 abstract class AbstractGrabber {
@@ -13,7 +13,7 @@ abstract class AbstractGrabber {
 	public $cookies = [];
 
 	/** @var int Таймаут соединения со шлюзом */
-	public $connectTimeout = 5;
+	public $connectTimeout = 10;
 
 	/** @var int Таймаут ожидания ответа после отправки команды на шлюз */
 	public $timeout = 30;
@@ -21,10 +21,16 @@ abstract class AbstractGrabber {
 	/** @var string UserAgent */
 	public $userAgent = 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0';
 
+	/** @var bool Использовать ли прокси */
+	public $useProxy = true;
+
+	/** @var bool Нужно ли обновлять уже загруженные ароматизаторы */
+	public $isNeedToUpdateFlavors = false;
+
 	/** @var string|null Путь к файлу для cookie, если null, то приём кук не будет осуществляться */
 	protected $cookieFile;
 
-	/** @var AbstractLogger Логгер */
+	/** @var LoggerStream Логгер */
 	protected $logger;
 
 	/** @var Source Модель источника */
@@ -70,6 +76,26 @@ abstract class AbstractGrabber {
 	 * @return string|null Контент или null в случае ошибки
 	 */
 	protected function load($url) {
+		$proxyList = Yii::$app->moduleManager->modules->recipes->proxyList;
+		shuffle($proxyList);
+		$proxy = null;
+
+		if (($this->useProxy === true) && (count($proxyList) > 0)) {
+			do {
+				$proxy = array_shift($proxyList);
+				$this->logger->log('Прокси: ' . $proxy);
+				$result = $this->loadInner($url, $proxy);
+			}
+			while ($result === null && (count($proxyList) > 0));
+		}
+		else {
+			$result = $this->loadInner($url);
+		}
+
+		return $result;
+	}
+
+	protected function loadInner($url, $proxy = null) {
 		$curl = curl_init();
 
 		curl_setopt($curl, CURLOPT_URL, $url);
@@ -97,6 +123,10 @@ abstract class AbstractGrabber {
 			curl_setopt($curl, CURLOPT_COOKIEJAR, $this->cookieFile);
 		}
 
+		if ($proxy !== null) {
+			curl_setopt($curl, CURLOPT_PROXY, $proxy);
+		}
+
 		$curlResult = curl_exec($curl);
 
 		$errNo = curl_errno($curl);
@@ -107,12 +137,18 @@ abstract class AbstractGrabber {
 
 		if ($errNo !== 0) {
 			$this->logger->log('Ошибка загрузки страницы ' . $url . ': code ' . $errNo, LoggerStream::TYPE_ERROR);
+			if ($proxy !== null) {
+				$this->logger->log('Используемый прокси-сервер: ' . $proxy, LoggerStream::TYPE_ERROR);
+			}
 
 			return null;
 		}
 
 		if ($responseHttpCode !== 200) {
 			$this->logger->log('Ошибка загрузки страницы ' . $url . ': Http-код ' . $errNo, LoggerStream::TYPE_ERROR);
+			if ($proxy !== null) {
+				$this->logger->log('Используемый прокси-сервер: ' . $proxy, LoggerStream::TYPE_ERROR);
+			}
 
 			return null;
 		}

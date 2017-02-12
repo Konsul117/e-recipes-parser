@@ -5,7 +5,8 @@ use common\modules\recipes\Recipes;
 return [
 	'modules' => [
 		'recipes' => [
-			'class' => Recipes::class,
+			'class'     => Recipes::class,
+			'proxyList' => [],
 		],
 	],
 ];

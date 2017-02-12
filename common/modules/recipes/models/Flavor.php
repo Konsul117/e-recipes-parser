@@ -8,8 +8,9 @@ use yiiCustom\base\ActiveRecord;
 /**
  * Ароматизаторы.
  *
- * @property int    $id    Уникальный идентификатор
- * @property string $title Название
+ * @property int    $id          Уникальный идентификатор
+ * @property string $title       Название
+ * @property int    $brand_id    Идентификатор бренда
  *
  * @property-read FlavorSourceLink[] $sourceLink Связь между ароматизатором и источниками
  */

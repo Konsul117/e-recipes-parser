@@ -3,11 +3,11 @@
 namespace common\modules\recipes\components;
 
 use common\modules\recipes\models\Flavor;
+use common\modules\recipes\models\FlavorBrand;
 use common\modules\recipes\models\FlavorSourceLink;
 use common\modules\recipes\models\Recipe;
 use common\modules\recipes\models\RecipeFlavor;
 use common\modules\recipes\models\Source;
-use DOMElement;
 use phpQuery;
 use phpQueryObject;
 use yii\base\Exception;
@@ -24,6 +24,9 @@ class VapeCraftGrabber extends AbstractGrabber {
 	/** @var string Начальная страница */
 	public $startUrl;
 
+	/** @var string[] Бренды ароматизаторов: имя бренда => id */
+	protected $flavorsBrandsIdsInKeys;
+
 	/**
 	 * @inheritdoc
 	 */
@@ -31,6 +34,12 @@ class VapeCraftGrabber extends AbstractGrabber {
 		if ($this->startUrl === null) {
 			$this->startUrl = $this->source->url;
 		}
+
+		//инициализируем список брендров ароматизаторов
+		$this->flavorsBrandsIdsInKeys = FlavorBrand::find()
+			->select([FlavorBrand::ATTR_ID])
+			->indexBy(FlavorBrand::ATTR_TITLE)
+			->column();
 
 		$firstPageHtml = $this->getListPage();
 
@@ -117,6 +126,8 @@ class VapeCraftGrabber extends AbstractGrabber {
 	 * @param phpQueryObject $page
 	 *
 	 * @return int
+	 *
+	 * @throws Exception
 	 */
 	protected function getMaxPageNumber(phpQueryObject $page) {
 		$this->logger->log('Получаем максимальный номер страницы');
@@ -128,9 +139,12 @@ class VapeCraftGrabber extends AbstractGrabber {
 
 		if (preg_match('/&per_page=([0-9]+)/i', $href, $result)) {
 			$number = $result[1] / static::RECIPES_PER_PAGE;
-		}
 
-		$this->logger->log('Результат: ' . $number);
+			$this->logger->log('Результат: ' . $number);
+		}
+		else {
+			throw new Exception('Не удалось получить максимальный номер страницы');
+		}
 
 		return $number;
 	}
@@ -144,8 +158,6 @@ class VapeCraftGrabber extends AbstractGrabber {
 	 */
 	protected function processRecipesLinksPage(phpQueryObject $page) {
 		foreach ($this->getRecipesLinks($page) as $recipeUrl) {
-			$this->logger->log('Обрабатываем рецепт по ссылке ' . $recipeUrl);
-
 			//обрабатываем сам рецепт
 			$recipeSiteId = null;
 
@@ -155,9 +167,7 @@ class VapeCraftGrabber extends AbstractGrabber {
 			}
 
 			if ($fromSourceId === null) {
-				$this->logger->log('Ошибка при парсинге URL рецепта: ' . $recipeUrl, LoggerStream::TYPE_ERROR);
-
-				return;
+				throw new Exception('Ошибка при парсинге URL рецепта: ' . $recipeUrl);
 			}
 
 			$recipePageHtml = $this->load($recipeUrl);
@@ -209,10 +219,11 @@ class VapeCraftGrabber extends AbstractGrabber {
 		//идентификаторы ароматизаторов
 		$flavorsSiteIds = [];
 
+		//обрабатываем все ароматизаторы на странице рецепта
 		foreach ($page->find('#calc-digits-frame-elem-id2 .calc-flavors-table .calc-flavors-table-flavor') as $flavorLine) {
-			$flavorUrl = phpQuery::pq($flavorLine)->find('.calc-flavors-row-name a.fl-link');
-			$flavorLink = $flavorUrl->attr('href');
-			$flavorName = $flavorUrl->find('.name-label')->text();
+			$flavorHref = phpQuery::pq($flavorLine)->find('.calc-flavors-row-name a.fl-link');
+			$flavorLink = $flavorHref->attr('href');
+			$flavorName = $flavorHref->find('.name-label')->text();
 
 			$fromSourceId = null;
 			if (preg_match('/\/main\/flavor\/([0-9]+)?/i', $flavorLink, $result)) {
@@ -220,7 +231,7 @@ class VapeCraftGrabber extends AbstractGrabber {
 			}
 
 			if ($fromSourceId === null) {
-				$this->logger->log('Ошибка при парсинге URL ароматизатора: ' . $flavorUrl, LoggerStream::TYPE_ERROR);
+				$this->logger->log('Ошибка при парсинге URL ароматизатора: ' . $flavorHref, LoggerStream::TYPE_ERROR);
 
 				return;
 			}
@@ -233,11 +244,47 @@ class VapeCraftGrabber extends AbstractGrabber {
 				])
 				->one();/** @var Flavor $flavor */
 
+			$isNew = false;
 			if ($flavor === null) {
+				$isNew = true;
 				$this->logger->log('Добавляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
 				$flavor = new Flavor();
+			}
+
+			if ($isNew === true || $this->isNeedToUpdateFlavors === true) {
+				if ($isNew === true) {
+					$flavor = new Flavor();
+					$this->logger->log('Добавляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
+				}
+				else {
+					$this->logger->log('Обновляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
+				}
 
 				$flavor->title = $flavorName;
+
+				//добавляем бренд
+				$brandName = $flavorHref->find('.make-label')->text();
+
+				if (array_key_exists($brandName, $this->flavorsBrandsIdsInKeys) === false) {
+					$flavorBrand = new FlavorBrand();
+
+					$flavorBrand->title = $brandName;
+
+					if ($flavorBrand->save() === false) {
+						$this->logger->log('Ошибка при сохранении бренда ароматизатора: ' . print_r($flavorBrand->errors, true), LoggerStream::TYPE_ERROR);
+
+						return;
+					}
+
+					$this->flavorsBrandsIdsInKeys[$brandName] = $flavorBrand->id;
+
+					$brandId = $flavorBrand->id;
+				}
+				else {
+					$brandId = $this->flavorsBrandsIdsInKeys[$brandName];
+				}
+
+				$flavor->brand_id = $brandId;
 
 				if ($flavor->save() === false) {
 					$this->logger->log('Ошибка при сохранении ароматизатора: ' . print_r($flavor->errors, true), LoggerStream::TYPE_ERROR);
@@ -245,27 +292,28 @@ class VapeCraftGrabber extends AbstractGrabber {
 					return;
 				}
 
-				//добавляем связку с источником
-				$link = new FlavorSourceLink();
+				if ($isNew === true) {
+					//добавляем связку с источником
+					$link = new FlavorSourceLink();
 
-				$link->flavor_id = $flavor->id;
-				$link->source_id = static::SOURCE_ID;
-				$link->source_flavor_id = $fromSourceId;
+					$link->flavor_id        = $flavor->id;
+					$link->source_id        = static::SOURCE_ID;
+					$link->source_flavor_id = $fromSourceId;
 
-				$flavorsSiteIds[] = $flavor->id;
+					if ($link->save() === false) {
+						$this->logger->log('Ошибка при сохранении связки ароматизатора с источником: ' . print_r($link->errors,
+								true), LoggerStream::TYPE_ERROR);
 
-				if ($link->save() === false) {
-					$this->logger->log('Ошибка при сохранении связки ароматизатора с источником: ' . print_r($link->errors, true), LoggerStream::TYPE_ERROR);
-
-					return;
+						return;
+					}
 				}
+
 			}
-			else {
-				$this->logger->log('Ароматизатор уже был загружен ' . $flavorName . ' (' . $flavorLink . ')');
-				$flavorsSiteIds[] = $flavor->id;
-			}
+
+			$flavorsSiteIds[] = $flavor->id;
 		}
 
+		//далее обновляем список аром у рецепта
 		$currentFlavors = RecipeFlavor::find()
 			->where([
 				RecipeFlavor::ATTR_RECIPE_ID => $recipeId,
