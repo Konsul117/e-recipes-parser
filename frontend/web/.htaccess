@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	# -- Для папки assets, если файла нет, то не стартуем движок, а сразу отдаём 404
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} ^/assets/
+	RewriteRule . - [L,QSA]
+	# -- -- -- --
+
+	# -- Таких страниц нет, но логи постоянно пишутся, поэтому на уровне apache пока редиректим на 404
+	RewriteRule ^apple-touch-.*			- [R=404,L] # Иконки для устройств Apple
+	RewriteRule ^browserconfig\.xml$	- [R=404,L] # Настройки для отображения preview сайта на планшетах
+	RewriteRule ^wp-.*$					- [R=404,L] # Боты проверки wordpress
+	RewriteRule ^bitrix/.*$				- [R=404,L] # Боты проверки bitrix
+	# -- -- -- --
+
+	# -- Перенаправляем на основную точку входа
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule (.*) index.php [L,QSA]
+	# -- -- -- --
+</IfModule>
