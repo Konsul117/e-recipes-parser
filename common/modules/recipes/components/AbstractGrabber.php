@@ -2,9 +2,11 @@
 
 namespace common\modules\recipes\components;
 
+use common\modules\recipes\components\proxyProvider\AbstractProxyProvider;
+use common\modules\recipes\components\proxyProvider\ProxyData;
 use common\modules\recipes\models\Source;
 use ReflectionClass;
-use Yii;
+use yii\base\Exception;
 use yiiCustom\logger\LoggerStream;
 
 abstract class AbstractGrabber {
@@ -13,10 +15,10 @@ abstract class AbstractGrabber {
 	public $cookies = [];
 
 	/** @var int Таймаут соединения со шлюзом */
-	public $connectTimeout = 10;
+	public $connectTimeout = 3;
 
 	/** @var int Таймаут ожидания ответа после отправки команды на шлюз */
-	public $timeout = 30;
+	public $timeout = 10;
 
 	/** @var string UserAgent */
 	public $userAgent = 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0';
@@ -36,6 +38,9 @@ abstract class AbstractGrabber {
 	/** @var Source Модель источника */
 	protected $source;
 
+	/** @var AbstractProxyProvider Провайдер прокси */
+	protected $proxyProvider;
+
 	protected function __construct() {}
 
 	/**
@@ -46,7 +51,7 @@ abstract class AbstractGrabber {
 	 *
 	 * @return self|null Граббер или null, если граббер для указанного источника отсутствует
 	 */
-	public static function getGrabber($sourceId, LoggerStream $logger) {
+	public static function getGrabber($sourceId, LoggerStream $logger, AbstractProxyProvider $proxyProvider) {
 		$source = Source::findOne([Source::ATTR_ID => $sourceId]);/** @var Source $source */
 
 		if ($source === null) {
@@ -62,8 +67,9 @@ abstract class AbstractGrabber {
 			return null;
 		}/** @var AbstractGrabber $grabber */
 
-		$grabber->source = $source;
-		$grabber->logger = $logger;
+		$grabber->source        = $source;
+		$grabber->logger        = $logger;
+		$grabber->proxyProvider = $proxyProvider;
 
 		return $grabber;
 	}
@@ -74,19 +80,31 @@ abstract class AbstractGrabber {
 	 * @param string $url URL страницы
 	 *
 	 * @return string|null Контент или null в случае ошибки
+	 *
+	 * @throws Exception
 	 */
 	protected function load($url) {
-		$proxyList = Yii::$app->moduleManager->modules->recipes->proxyList;
-		shuffle($proxyList);
+//		shuffle($proxyList);
 		$proxy = null;
 
-		if (($this->useProxy === true) && (count($proxyList) > 0)) {
-			do {
-				$proxy = array_shift($proxyList);
-				$this->logger->log('Прокси: ' . $proxy);
-				$result = $this->loadInner($url, $proxy);
+		if ($this->useProxy === true) {
+			$proxyList = $this->proxyProvider->getProxyList();
+
+			if (count($proxyList) > 0) {
+				do {
+					$proxy = array_shift($proxyList);
+					$this->logger->log('Прокси: ' . $proxy->getAddressString());
+					$result = $this->loadInner($url, $proxy);
+
+					if ($result === null) {
+						$this->proxyProvider->banProxy($proxy->id);
+					}
+				}
+				while ($result === null && (count($proxyList) > 0));
 			}
-			while ($result === null && (count($proxyList) > 0));
+			else {
+				throw new Exception('Не удалось получить список прокси');
+			}
 		}
 		else {
 			$result = $this->loadInner($url);
@@ -95,7 +113,7 @@ abstract class AbstractGrabber {
 		return $result;
 	}
 
-	protected function loadInner($url, $proxy = null) {
+	protected function loadInner($url, ProxyData $proxy = null) {
 		$curl = curl_init();
 
 		curl_setopt($curl, CURLOPT_URL, $url);
@@ -124,7 +142,7 @@ abstract class AbstractGrabber {
 		}
 
 		if ($proxy !== null) {
-			curl_setopt($curl, CURLOPT_PROXY, $proxy);
+			curl_setopt($curl, CURLOPT_PROXY, $proxy->getAddressString());
 		}
 
 		$curlResult = curl_exec($curl);
@@ -138,7 +156,7 @@ abstract class AbstractGrabber {
 		if ($errNo !== 0) {
 			$this->logger->log('Ошибка загрузки страницы ' . $url . ': code ' . $errNo, LoggerStream::TYPE_ERROR);
 			if ($proxy !== null) {
-				$this->logger->log('Используемый прокси-сервер: ' . $proxy, LoggerStream::TYPE_ERROR);
+				$this->logger->log('Используемый прокси-сервер: ' . $proxy->getAddressString(), LoggerStream::TYPE_ERROR);
 			}
 
 			return null;
@@ -147,7 +165,7 @@ abstract class AbstractGrabber {
 		if ($responseHttpCode !== 200) {
 			$this->logger->log('Ошибка загрузки страницы ' . $url . ': Http-код ' . $errNo, LoggerStream::TYPE_ERROR);
 			if ($proxy !== null) {
-				$this->logger->log('Используемый прокси-сервер: ' . $proxy, LoggerStream::TYPE_ERROR);
+				$this->logger->log('Используемый прокси-сервер: ' . $proxy->getAddressString(), LoggerStream::TYPE_ERROR);
 			}
 
 			return null;
