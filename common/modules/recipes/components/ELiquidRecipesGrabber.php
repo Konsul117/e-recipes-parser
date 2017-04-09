@@ -252,7 +252,6 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 			$isNew = false;
 			if ($flavor === null) {
 				$isNew = true;
-				$this->logger->log('Добавляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
 			}
 
 			if ($isNew === true || $this->isNeedToUpdateFlavors === true) {
