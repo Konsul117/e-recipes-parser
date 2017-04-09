@@ -26,15 +26,6 @@ $result = [
 		'configManager' => [
 			'class' => ConfigManager::class,
 		],
-		'cache' => [
-			'class'   => \yii\caching\MemCache::class,
-			'servers' => [
-				[
-					'host' => 'localhost',
-					'port' => 11211,
-				],
-			],
-		],
 		'urlManager'    => [
 			'enablePrettyUrl' => true,
 			'showScriptName'  => false,
