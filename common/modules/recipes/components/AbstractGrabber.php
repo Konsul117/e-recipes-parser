@@ -171,6 +171,11 @@ abstract class AbstractGrabber {
 			return null;
 		}
 
+		//иногда http-код передаётся в теле страницы, хотя в заголовке 200, поэтому проверяем
+		if (preg_match('/^HTTP\/1.?[0-9]? [4-5][0-9][0-9]/', $curlResult) === 1) {
+			return null;
+		}
+
 		return $curlResult;
 	}
 
