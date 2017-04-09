@@ -2,6 +2,8 @@
 
 namespace common\modules\recipes\components\proxyProvider;
 
+use Faker\Provider\Uuid;
+
 /**
  * Модель-обёртка для данных о прокси-сервере.
  */
@@ -15,6 +17,13 @@ class ProxyData {
 
 	/** @var string Порт прокси */
 	public $port;
+
+	/**
+	 * ProxyData constructor.
+	 */
+	public function __construct() {
+		$this->id = Uuid::uuid();
+	}
 
 	/**
 	 * Получение строки адреса: адрес:порт

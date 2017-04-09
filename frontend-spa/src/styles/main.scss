@@ -1,8 +1,3 @@
-.qwe {
-	font-weight: bold;
-	color: #FF0;
-}
-
-@import "_page1.scss";
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "flavorFilters";
+@import "flavorList";

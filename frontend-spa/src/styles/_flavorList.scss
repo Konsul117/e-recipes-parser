@@ -1,0 +1,12 @@
+.flavor-list {
+	ul {
+		@extend .list-unstyled;
+		> li {
+			.brand-name {
+				margin-left: 0.5em;
+				font-size:   0.9em;
+				color:       #777;
+			}
+		}
+	}
+}

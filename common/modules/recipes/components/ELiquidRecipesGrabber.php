@@ -141,8 +141,9 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 	protected function getMaxPageNumber(phpQueryObject $page) {
 		$this->logger->log('Получаем максимальный номер страницы');
 
-		$a = $page->find('div.pagination li a:last');
-		$number = (int) $a->val();
+		$liList = $page->find('div.pagination li');
+		$a = $liList->eq($liList->length - 2)->find('a');
+		$number = (int) $a->text();
 
 		$this->logger->log('Результат: ' . $number);
 
@@ -241,7 +242,7 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 			}
 
 			$flavor = Flavor::find()
-				->joinWith(Flavor::REL_SOURCE_LINK)
+				->joinWith(Flavor::REL_SOURCE_LINKS)
 				->where([
 					FlavorSourceLink::tableName() . '.' . FlavorSourceLink::ATTR_SOURCE_ID        => static::SOURCE_ID,
 					FlavorSourceLink::tableName() . '.' . FlavorSourceLink::ATTR_SOURCE_FLAVOR_ID => $fromSourceId,
@@ -257,7 +258,7 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 			if ($isNew === true || $this->isNeedToUpdateFlavors === true) {
 				if ($isNew === true) {
 					$flavor = new Flavor();
-					$this->logger->log('Добавляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
+					$this->logger->log('Создаём ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
 				}
 				else {
 					$this->logger->log('Обновляем ароматизатор ' . $flavorName . ' (' . $flavorLink . ')');
@@ -266,28 +267,33 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 				$flavor->title = $flavorName;
 
 				//добавляем бренд
-				$brandName = $flavorHref->find('.abbr')->attr('title');
+				$brandName = $flavorHref->find('abbr')->attr('title');
 
-				if (array_key_exists($brandName, $this->flavorsBrandsIdsInKeys) === false) {
-					$flavorBrand = new FlavorBrand();
+				$brandId = null;
 
-					$flavorBrand->title = $brandName;
+				if ($brandName !== '') {
+					if (array_key_exists($brandName, $this->flavorsBrandsIdsInKeys) === false) {
+						$flavorBrand = new FlavorBrand();
 
-					if ($flavorBrand->save() === false) {
-						$this->logger->log('Ошибка при сохранении бренда ароматизатора: ' . print_r($flavorBrand->errors, true), LoggerStream::TYPE_ERROR);
+						$flavorBrand->title = $brandName;
 
-						return;
+						if ($flavorBrand->save() === true) {
+							$this->flavorsBrandsIdsInKeys[$brandName] = $flavorBrand->id;
+
+							$brandId = $flavorBrand->id;
+						}
+						else {
+							$this->logger->log('Ошибка при сохранении бренда ароматизатора: ' . print_r($flavorBrand->errors, true), LoggerStream::TYPE_ERROR);
+						}
 					}
-
-					$this->flavorsBrandsIdsInKeys[$brandName] = $flavorBrand->id;
-
-					$brandId = $flavorBrand->id;
-				}
-				else {
-					$brandId = $this->flavorsBrandsIdsInKeys[$brandName];
+					else {
+						$brandId = $this->flavorsBrandsIdsInKeys[$brandName];
+					}
 				}
 
-				$flavor->brand_id = $brandId;
+				if ($brandId !== null) {
+					$flavor->brand_id = $brandId;
+				}
 
 				if ($flavor->save() === false) {
 					$this->logger->log('Ошибка при сохранении ароматизатора: ' . print_r($flavor->errors, true), LoggerStream::TYPE_ERROR);

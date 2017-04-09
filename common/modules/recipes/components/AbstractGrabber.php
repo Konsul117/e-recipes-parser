@@ -15,7 +15,7 @@ abstract class AbstractGrabber {
 	public $cookies = [];
 
 	/** @var int Таймаут соединения со шлюзом */
-	public $connectTimeout = 3;
+	public $connectTimeout = 5;
 
 	/** @var int Таймаут ожидания ответа после отправки команды на шлюз */
 	public $timeout = 10;
@@ -163,7 +163,7 @@ abstract class AbstractGrabber {
 		}
 
 		if ($responseHttpCode !== 200) {
-			$this->logger->log('Ошибка загрузки страницы ' . $url . ': Http-код ' . $errNo, LoggerStream::TYPE_ERROR);
+			$this->logger->log('Ошибка загрузки страницы ' . $url . ': Http-код ' . $responseHttpCode, LoggerStream::TYPE_ERROR);
 			if ($proxy !== null) {
 				$this->logger->log('Используемый прокси-сервер: ' . $proxy->getAddressString(), LoggerStream::TYPE_ERROR);
 			}

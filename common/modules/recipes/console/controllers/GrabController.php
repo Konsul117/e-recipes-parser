@@ -21,7 +21,7 @@ class GrabController extends Controller {
 		$logStream = new StdoutLogger();
 		$logStream->memoryUsageOut = false;
 
-		$grabber = AbstractGrabber::getGrabber($sourceId, $logStream, Yii::$app->moduleManager->modules->recipes->freeProxyList);
+		$grabber = AbstractGrabber::getGrabber($sourceId, $logStream, Yii::$app->moduleManager->modules->recipes->proxyProvider);
 
 		if ($grabber === null) {
 			$this->stdout('Ошибка инициализации граббера. Возможно, источник некорректный' . PHP_EOL);

@@ -237,7 +237,7 @@ class VapeCraftGrabber extends AbstractGrabber {
 			}
 
 			$flavor = Flavor::find()
-				->joinWith(Flavor::REL_SOURCE_LINK)
+				->joinWith(Flavor::REL_SOURCE_LINKS)
 				->where([
 					FlavorSourceLink::tableName() . '.' . FlavorSourceLink::ATTR_SOURCE_ID        => static::SOURCE_ID,
 					FlavorSourceLink::tableName() . '.' . FlavorSourceLink::ATTR_SOURCE_FLAVOR_ID => $fromSourceId,
@@ -265,31 +265,35 @@ class VapeCraftGrabber extends AbstractGrabber {
 				//добавляем бренд
 				$brandName = $flavorHref->find('.make-label')->text();
 
+				$brandId = null;
+
 				if (array_key_exists($brandName, $this->flavorsBrandsIdsInKeys) === false) {
 					$flavorBrand = new FlavorBrand();
 
 					$flavorBrand->title = $brandName;
 
-					if ($flavorBrand->save() === false) {
-						$this->logger->log('Ошибка при сохранении бренда ароматизатора: ' . print_r($flavorBrand->errors, true), LoggerStream::TYPE_ERROR);
+					if ($flavorBrand->save() === true) {
+						$this->flavorsBrandsIdsInKeys[$brandName] = $flavorBrand->id;
 
-						return;
+						$brandId = $flavorBrand->id;
 					}
-
-					$this->flavorsBrandsIdsInKeys[$brandName] = $flavorBrand->id;
-
-					$brandId = $flavorBrand->id;
+					else {
+						$this->logger->log('Ошибка при сохранении бренда ароматизатора: ' . print_r($flavorBrand->errors, true), LoggerStream::TYPE_ERROR);
+					}
 				}
 				else {
 					$brandId = $this->flavorsBrandsIdsInKeys[$brandName];
 				}
 
-				$flavor->brand_id = $brandId;
+				if ($brandId !== null) {
+					$flavor->brand_id = $brandId;
 
-				if ($flavor->save() === false) {
-					$this->logger->log('Ошибка при сохранении ароматизатора: ' . print_r($flavor->errors, true), LoggerStream::TYPE_ERROR);
+					if ($flavor->save() === false) {
+						$this->logger->log('Ошибка при сохранении ароматизатора: ' . print_r($flavor->errors, true),
+							LoggerStream::TYPE_ERROR);
 
-					return;
+						return;
+					}
 				}
 
 				if ($isNew === true) {

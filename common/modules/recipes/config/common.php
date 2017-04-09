@@ -6,11 +6,12 @@ return [
 	'modules' => [
 		'recipes' => [
 			'class'      => Recipes::class,
-			'proxyList'  => [],
 			'components' => [
-				'freeProxyList' => [
+				'proxyProvider' => [
 					'class' => \common\modules\recipes\components\proxyProvider\FreeProxyListProvider::class,
-					'token' => 'demo',
+//					'class' => \common\modules\recipes\components\proxyProvider\GetProxyListProvider::class,
+					'token' => 'demo',//freeproxy
+//					'key' => '8vmnfdemafuwipo6sa7drwdqmbhmyw',//spinproxies.com
 				],
 			],
 		],

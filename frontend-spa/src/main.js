@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import {Router, Route, Redirect, hashHistory} from 'react-router';
-import App from './App.js';
+import ReactDOM from "react-dom";
+import React from "react";
+import {hashHistory, Route, Router} from "react-router";
+import App from "./App.jsx";
 
 ReactDOM.render(
 	<Router history={hashHistory}>
