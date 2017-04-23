@@ -2,10 +2,10 @@
 
 namespace common\modules\recipes\components;
 
-use common\modules\recipes\components\proxyProvider\AbstractProxyProvider;
-use common\modules\recipes\components\proxyProvider\ProxyData;
 use common\modules\recipes\models\Source;
+use proxyProvider\components\ProxyData;
 use ReflectionClass;
+use Yii;
 use yii\base\Exception;
 use yiiCustom\logger\LoggerStream;
 
@@ -38,9 +38,6 @@ abstract class AbstractGrabber {
 	/** @var Source Модель источника */
 	protected $source;
 
-	/** @var AbstractProxyProvider Провайдер прокси */
-	protected $proxyProvider;
-
 	protected function __construct() {}
 
 	/**
@@ -51,7 +48,7 @@ abstract class AbstractGrabber {
 	 *
 	 * @return self|null Граббер или null, если граббер для указанного источника отсутствует
 	 */
-	public static function getGrabber($sourceId, LoggerStream $logger, AbstractProxyProvider $proxyProvider) {
+	public static function getGrabber($sourceId, LoggerStream $logger) {
 		$source = Source::findOne([Source::ATTR_ID => $sourceId]);/** @var Source $source */
 
 		if ($source === null) {
@@ -69,7 +66,6 @@ abstract class AbstractGrabber {
 
 		$grabber->source        = $source;
 		$grabber->logger        = $logger;
-		$grabber->proxyProvider = $proxyProvider;
 
 		return $grabber;
 	}
@@ -87,24 +83,19 @@ abstract class AbstractGrabber {
 //		shuffle($proxyList);
 		$proxy = null;
 
-		if ($this->useProxy === true) {
-			$proxyList = $this->proxyProvider->getProxyList();
+		$result = null;
 
-			if (count($proxyList) > 0) {
-				do {
-					$proxy = array_shift($proxyList);
+		if ($this->useProxy === true) {
+			do {
+				$proxy = Yii::$app->moduleManager->modules->recipes->proxyProviderPool->getProxy();
+
+				if ($proxy !== null) {
 					$this->logger->log('Прокси: ' . $proxy->getAddressString());
 					$result = $this->loadInner($url, $proxy);
 
-					if ($result === null) {
-						$this->proxyProvider->banProxy($proxy->id);
-					}
+					Yii::$app->moduleManager->modules->recipes->proxyProviderPool->addProxyStat($proxy->id, ($result !== null));
 				}
-				while ($result === null && (count($proxyList) > 0));
-			}
-			else {
-				throw new Exception('Не удалось получить список прокси');
-			}
+			} while ($result === null && $proxy !== null);
 		}
 		else {
 			$result = $this->loadInner($url);

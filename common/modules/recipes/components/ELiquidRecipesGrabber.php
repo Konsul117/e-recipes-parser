@@ -10,6 +10,7 @@ use common\modules\recipes\models\RecipeFlavor;
 use common\modules\recipes\models\Source;
 use phpQuery;
 use phpQueryObject;
+use proxyProvider\components\ProxyData;
 use yii\base\Exception;
 use yiiCustom\logger\LoggerStream;
 
@@ -87,6 +88,17 @@ class ELiquidRecipesGrabber extends AbstractGrabber {
 		if (file_exists($this->cookieFile)) {
 			unlink($this->cookieFile);
 		}
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function loadInner($url, ProxyData $proxy = null) {
+		if (file_exists($this->cookieFile)) {
+			unlink($this->cookieFile);
+		}
+		$this->cookieFile = tempnam("/tmp", "e-liquid_recipes_cookie_file");
+		return parent::loadInner($url, $proxy);
 	}
 
 	/**

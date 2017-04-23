@@ -2,13 +2,13 @@
 
 namespace common\modules\recipes;
 
-use common\modules\recipes\components\proxyProvider\AbstractProxyProvider;
+use proxyProvider\components\ProxyProviderPool;
 use yiiCustom\base\Module;
 
 /**
  * Модуль рецептов.
  *
- * @property-read AbstractProxyProvider $proxyProvider Провайдер прокси-серверов "Proxy Spider"
+ * @property-read ProxyProviderPool $proxyProviderPool Пул провайдеров прокси
  */
 class Recipes extends Module {
 }
