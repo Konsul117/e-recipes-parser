@@ -2,9 +2,11 @@
 
 namespace common\modules\recipes\console\controllers;
 
+use common\components\EmptyLogger;
 use common\modules\recipes\components\AbstractGrabber;
 use yii\console\Controller;
 use yiiCustom\logger\StdoutLogger;
+use Yii;
 
 /**
  * Контроллер граббинга.
@@ -17,6 +19,7 @@ class GrabController extends Controller {
 	 * @param int $sourceId Идентификатор источника
 	 */
 	public function actionIndex($sourceId) {
+		Yii::setLogger(new EmptyLogger());
 		$logStream = new StdoutLogger();
 		$logStream->memoryUsageOut = false;
 
