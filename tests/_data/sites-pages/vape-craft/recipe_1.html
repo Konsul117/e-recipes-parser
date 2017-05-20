@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<title>Рецепт самозамеса vape жидкости для электронных сигарет Nicoticket Betelgeuse на VapeCraft.ru - Мастерская пара</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta charset="utf-8"/>
+<meta property = "og:title" content = "Vape Craft" />
+<meta property = "og:image" content="http://www.vapecraft.ru/vapecraft_logo_100px.jpg" />
+<meta property = "og:description" content = "Калькулятор, база ароматизаторов и рецептов vape жидкостей для электронных сигарет" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="www.vapecraft.ru - мастерская пара"/>
+<meta name="description" content="Рецепты жидкостей самозамеса для электронных &quot;сигарет&quot;, калькулятор, общая и персональная база данных ароматизаторов и готовых жидкостей, обзоры, рейтинги, отзывы."/>
+<meta name="keywords" content="Nicoticket Betelgeuse, Sweet Strawberry, Golden Pineapple, Raspberry, Sweet Mango"/>
+<meta name="copyright" content="(c) 2015-2016 www.vapecraft.ru"/>
+<meta name="google-site-verification" content="GagkbUgyz9KLaN1VJurtLwqUEinTH7JEyFknZ6dG1EU" />
+<link rel="icon" href="http://www.vapecraft.ru/assets/ico/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.vapecraft.ru/assets/ico/favicon.ico">
+<link media="all" type="text/css" rel="stylesheet" href="http://www.vapecraft.ru/assets/css/bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="http://www.vapecraft.ru/assets/css/view.css?201702171500">
+<link media="print" type="text/css" rel="stylesheet" href="http://www.vapecraft.ru/assets/css/print.css">
+<link media="all" type="text/css" rel="stylesheet" href="http://www.vapecraft.ru/assets/css/jquery.css">
+<link media="all" type="text/css" rel="stylesheet" href="http://www.vapecraft.ru/assets/css/jquery-ui.min.css"> 
+<script src="http://www.vapecraft.ru/assets/js/jquery.min.js"></script>
+<script src="http://www.vapecraft.ru/assets/js/jquery-ui.min.js"></script>
+<script src="http://www.vapecraft.ru/assets/js/bootstrap.min.js"></script>
+<script src="http://www.vapecraft.ru/assets/js/jquery-ui.js"></script>
+<script>
+  $(document).ready(function(){
+  var cM = 0;
+    $('#sign-in').click(function(){
+    $.ajax({
+      type:"POST",
+      url: "http://www.vapecraft.ru/main/login_in_ajax",
+      data: { 
+        username: $('input[name=username]').val(),
+        password: $('input[name=password]').val()
+      },
+      dataType: "html", 
+      success: function(data_status){
+        var obj_status = jQuery.parseJSON(data_status);
+        if(obj_status.warning.length){
+          showAlert('#sign-inDrop', obj_status.warning, true);
+        }else if(obj_status.success.length){
+          showAlert('#sign-inDrop', obj_status.success, false, true);
+          setTimeout(function() { location.reload(0); }, 800);
+        } else{
+          showAlert('#sign-inDrop', "Ошибка обмена, повторите попытку", true);
+        }   
+      }
+    }); 
+        return false;
+    });
+$('input[name=password]').keypress(function (e) {
+  if (e.which == 13) {
+  $('#sign-in').click();
+  }
+});
+
+function showAlert(parent, message, warning, success){
+    var cs = 'alert-info';
+    if(parent==undefined){
+        return;
+    }
+    $(parent+' .alert').attr({
+        'class':'alert hidden',
+        'style':''
+    });
+    if(message == undefined){
+        return;
+    }
+    if(warning!=undefined && warning){
+        cs = 'alert-warning navi-alert';
+    }
+    if(success!=undefined && success){
+        cs = 'alert-success navi-alert';
+    }    
+    $(parent+' .alert').attr('class','alert hidden '+cs);
+    $(parent+' .alert .text').html(''+message+'');
+    //$(parent+' .alert').show();
+    $(parent+' .alert').removeClass('hidden');
+    clearInterval(cM);
+    cM = setInterval(function (){
+        $(parent+' .alert').hide('fast', function (){
+            $(parent+' .alert').attr({
+                'class':'alert hidden',
+                'style':''
+            });
+        });
+        clearInterval(cM);
+    }, 10000);
+}   
+    $('#save_profile_button').click(function(e){
+        var form = $('#save_profile');
+        $.post('/main/save_profile/', form.serialize(), function (data){
+            if(data.error.length){
+                showAlert('#save_profile', data.error, true);
+            }else if(data.success.length){
+                showAlert('#save_profile', data.success, false);
+                setInterval(function (){
+                    window.location.href="?";
+                }, 3000);
+            } else{
+                showMessage("Ошибка обмена, повторите попытку", true, false);
+            }
+        }, 'json');
+        e.preventDefault();
+        return false;
+    }); 
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    if(!$('ul.pagination').html()) {
+        $("div.pagination-bar").hide();
+        $("div.social-btn-bar").attr("style", "margin-top:22px;");
+    }
+});
+</script>
+<body>
+<!-- Google Analytics counter -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-72326355-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- //Google Analytics counter -->
+<!-- Rating@Mail.ru counter -->
+<script type="text/javascript">
+var _tmr = _tmr || [];
+_tmr.push({id: "2627104", type: "pageView", start: (new Date()).getTime()});
+(function (d, w) {
+   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window);
+</script><noscript><div style="position:absolute;left:-10000px;">
+<img src="//top-fwz1.mail.ru/counter?id=2627104;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" />
+</div></noscript>
+<!-- //Rating@Mail.ru counter -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">  
+  <div class="container"><!--.container -->
+    <div class="navbar-header">
+			<div class="head-logo">
+				<a href="http://www.vapecraft.ru/main/index"><img src="http://www.vapecraft.ru/assets/img/vapecraft-logo.svg"></a>
+			</div>
+      <div class="head-brand-name">
+        <a class="head-brand" href="http://www.vapecraft.ru/main/index"><h1>VAPE CRAFT</h1></a>
+      </div>
+      <div class="compact-menu-button">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+    <!--/.nav-collapse -->
+    <div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Рецепты<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+            <li><a href="http://www.vapecraft.ru/main/create_recept"><span class="glyphicon glyphicon-pencil"></span> Новый рецепт</a></li>
+            <li><a href="http://www.vapecraft.ru/main/index"><span class="glyphicon glyphicon-list"></span> Все рецепты</a></li>
+            <li><a href="http://www.vapecraft.ru/main/flavors"><span class="glyphicon glyphicon-leaf"></span> Ароматизаторы</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Информация<b class="caret"></b></a>                 
+          <ul class="dropdown-menu">
+            <li><a href="http://www.vapecraft.ru/main/about"><span class="glyphicon glyphicon-home"></span> О проекте</a></li>
+            <li><a href="http://www.vapecraft.ru/main/friends"><span class="glyphicon glyphicon-thumbs-up"></span> Друзья и партнеры</a></li>
+            <li><a href="http://www.vapecraft.ru/main/disclamer"><span class="glyphicon glyphicon-file"></span> Соглашение</a></li>
+            <li><a href="http://www.vapecraft.ru/main/promo"><span class="glyphicon glyphicon-blackboard"></span> Рекламодателям</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Ваш профиль<b class="caret"></b></a>
+          <ul class="dropdown-menu profile">
+            <li></li>
+                        <form method="post" action="login" accept-charset="UTF-8" id="sign-inForm">
+              <li>
+                <div id="sign-inDrop">
+                  <div class="alert hidden alert-warning navi-alert">
+                    <span class="text"></span>
+                  </div>
+                </div>
+              </li>
+<!--noindex-->
+              <li><input class="form-control login-form" placeholder="ваш@email.com" id="username" name="username" type="text"></li>
+              <li><input class="form-control login-form" placeholder="Пароль" id="password" name="password" type="password"></li>
+              <li><a class="btn btn-success btn-block btn-xs login-form" data-loading-text="Авторизуемся" id="sign-in" rel="nofollow">
+                <span class="glyphicon glyphicon-log-in"></span>
+               Авторизироваться</a></li>
+              <li>                
+                <a href="http://www.vapecraft.ru/register/index" class="btn btn-primary btn-block btn-xs login-form" rel="nofollow" id="reg-on">
+                <span class="glyphicon glyphicon-record"></span> Зарегистрироваться</a><br/>
+              </li>
+              <li>
+                <span class="forgot">             
+                  <span class="glyphicon glyphicon-option-horizontal"></span>
+                  <a href="http://www.vapecraft.ru/register/remind_pass" rel="nofollow">Забыли пароль?</a>
+                </span>
+              </li>
+<!--/noindex-->
+                
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div>
+<script src="http://www.vapecraft.ru/assets/js/login-form.js"></script><script src="http://www.vapecraft.ru/assets/js/chosen.jquery.js" type="text/javascript"></script>
+<script src="http://www.vapecraft.ru/assets/js/calc.js?201704050041" type="text/javascript"></script>
+<link rel="stylesheet" href="http://www.vapecraft.ru/assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="http://www.vapecraft.ru/assets/css/calc-style.css?201702171500">
+<script>
+  $(function() {
+    $('.chosen-select').chosen();
+    $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+  });
+</script><script type="text/javascript">
+$(document).ready(function () {
+    $('.delete-recept').click(function () {
+        $('span.mdl-name').text($(this).data('recept-name'));
+        var $link = $(this).data('recept-id');
+        $('a.mdl-id').attr('href', '/main/del_recept/' + $link);
+    });
+});
+</script>
+<div class="modal fade bs-example-modal-sm" id="link2rec" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      Прямая ссылка на этот рецепт:
+      </div>
+      <div class="modal-body">
+      <input class="form-control direct-link" onblur="this.select();" onfocus="this.select();" onclick="this.select();" value="http://www.vapecraft.ru/main/recept/38088" readonly autofocus></input><br>
+        <kbd>Ctrl + C</kbd> (PC) / <kbd>⌘ + C</kbd> (Mac)
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="mySmallModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mdl-title">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="mdl-title" id="myModalLabel">Удаление вашего рецепта.</h4>
+      </div>
+      <div class="modal-body alert-danger mdl-text">
+        Вы уверены, что хотите удалить ваш рецепт:
+        <br>
+        <span class="recept-name mdl-name"></span>
+        ?
+      </div>
+      <div class="modal-footer mdl-btns">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+      <a class="mdl-id" href=""><button type="button" class="btn btn-warning">Удалить</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// Modal -->  
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="simpleRecept" tabindex="-1" role="dialog" aria-labelledby="simpleReceptLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mdl-rec-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="no-print">&times;</span></button>
+        <h4 class="mdl-recept-title" id="receptLabel">Рецепт: Nicoticket Betelgeuse<br>Автор: SevaDon<br>от: 11.05.2017</h4><br><div class="vclink">WWW.VAPECRAFT.RU &copy; 2015-2016 All Rights Reserved</div>
+      </div>
+      <div class="modal-body">        
+        <!-- Шапка таблицы -->
+        <div id="smRecept">
+          <div id="smReceptHeader">
+            <div class="smIngr">Ингредиенты</div>
+            <div class="smMl">ml</div>
+            <div class="smDrop">капли</div>
+            <div class="smMg">граммы</div>
+            <div class="smPerc">%</div> 
+          </div>
+          <!--// Шапка таблицы -->
+          <!-- PG, VG, AD, FL -->
+          <div class="smIngrSet" id="smIngrNicSet">
+            <div class="smIngr"><span class="smIngrNicSetTitle">Добавляемый никотин: <span id="smNicStr">100 мг</span><br> Пропорции: (<span id="smNicPg">0</span>% PG, <span id="smNicVg">0</span>% VG, <span id="smNicAd">0</span>% AD)</span></div>
+            <div class="smMl" id="smNicMl">0.9</div>
+            <div class="smDrop" id="smNicDrop">38</div>
+            <div class="smMg" id="smNicMg">0.93</div>
+            <div class="smPerc" id="smNicPerc">3</div>
+          </div>
+          <div class="smIngrSet" id="smIngrPgSet">
+            <div class="smIngr"><span class="smIngrPgSetTitle">Добавляемый PG</span></div>
+            <div class="smMl" id="smPgMl">3</div>
+            <div class="smDrop" id="smPgDrop">126</div>
+            <div class="smMg" id="smPgMg">3.11</div>
+            <div class="smPerc" id="smPgPerc">10</div>
+          </div>
+          <div class="smIngrSet" id="smIngrVgSet">
+            <div class="smIngr"><span class="smIngrVgSetTitle">Добавляемый VG</span></div>
+            <div class="smMl" id="smVgMl">21</div>
+            <div class="smDrop" id="smVgDrop">882</div>
+            <div class="smMg" id="smVgMg">26.49</div>
+            <div class="smPerc" id="smVgPerc">70</div>
+          </div>
+          <div class="smIngrSet" id="smIngrAdSet">
+            <div class="smIngr"><span class="smIngrAdSetTitle">Добавляемый AD</span></div>
+            <div class="smMl" id="smAdMl">0</div>
+            <div class="smDrop" id="smAdDrop">0</div>
+            <div class="smMg" id="smAdMg">0</div>
+            <div class="smPerc" id="smAdPerc">0</div>
+          </div>
+          <div class="smIngrSet" id="smIngrTotalFlSet">
+            <div class="smIngr"><span class="smIngrTotalFlSetTitle">Общее количество ароматизаторов:</span></div>
+            <div class="smMl" id="smFlTotalMl">0</div>
+            <div class="smDrop" id="smFlTotalDrop">0</div>
+            <div class="smMg" id="smFlTotalMg">0</div>
+            <div class="smPerc" id="smFlTotalPerc">0</div>
+          </div>
+          <!--// PG, VG, AD, FL -->
+          <!-- Ароматизаторы -->
+
+          <div id="smReceptFlavors">
+            <div class="smIngrSet" id="smIngrFlSetId-1">
+              <div class="smIngr" id="smIngrFlTitle-1">Sweet Strawberry - Capella Flavors</div>
+              <div class="smMl" id="smFlMl-1"></div>
+              <div class="smDrop" id="smFlDrop-1"></div>
+              <div class="smMg" id="smFlMg-1"></div>
+              <div class="smPerc" id="smFlPerc-1"></div>
+            </div>
+          </div>
+          <div id="smReceptFlavors">
+            <div class="smIngrSet" id="smIngrFlSetId-2">
+              <div class="smIngr" id="smIngrFlTitle-2">Golden Pineapple - Capella Flavors</div>
+              <div class="smMl" id="smFlMl-2"></div>
+              <div class="smDrop" id="smFlDrop-2"></div>
+              <div class="smMg" id="smFlMg-2"></div>
+              <div class="smPerc" id="smFlPerc-2"></div>
+            </div>
+          </div>
+          <div id="smReceptFlavors">
+            <div class="smIngrSet" id="smIngrFlSetId-3">
+              <div class="smIngr" id="smIngrFlTitle-3">Raspberry - Capella Flavors</div>
+              <div class="smMl" id="smFlMl-3"></div>
+              <div class="smDrop" id="smFlDrop-3"></div>
+              <div class="smMg" id="smFlMg-3"></div>
+              <div class="smPerc" id="smFlPerc-3"></div>
+            </div>
+          </div>
+          <div id="smReceptFlavors">
+            <div class="smIngrSet" id="smIngrFlSetId-4">
+              <div class="smIngr" id="smIngrFlTitle-4">Sweet Mango - Capella Flavors</div>
+              <div class="smMl" id="smFlMl-4"></div>
+              <div class="smDrop" id="smFlDrop-4"></div>
+              <div class="smMg" id="smFlMg-4"></div>
+              <div class="smPerc" id="smFlPerc-4"></div>
+            </div>
+          </div>          <!--// Ароматизаторы -->
+          <!-- Всего -->
+          <div class="smIngrSet" id="smIngrTotal">
+            <div class="smIngr">Всего:</div>
+            <div class="smMl" id="smTotalMl">30</div>
+            <div class="smDrop" id="smTotalDrop">1262</div>
+            <div class="smMg" id="smTotalMg">35.63</div>
+            <div class="smPerc" id="smTotalPerc">100</div>
+          </div>
+          <!--// Всего -->
+          <!-- Дополнительная информация -->
+          <div class="smCommonInfo">
+            <div class="smCommonNicAndLink">
+            <div class="smCommonNic">Никотиновая крепость: <span id="smCommonNicStr">0</span> mg</div>
+            <div class="smCommonLink">http://www.vapecraft.ru/main/recept/38088</div>
+            </div>
+            <div class="smCommonBase">Соотношение: 
+            <span id="smCommonPg">PG-3</span> / 
+            <span id="smCommonVg">VG-3</span> / 
+            <span id="smCommonAd">AD-3</span>
+            </div>
+            <div class="smCommonDrop">Капель в 1 мл: <span id="smCommonDropPerMl">33</span></div>
+          </div>
+          <!-- Дополнительная информация -->
+        </div>
+        <!--// Конец рецепта -->   
+      </div>
+      <div class="modal-footer mdl-rec-btns">
+        <button type="button" class="btn btn-default no-print" data-dismiss="modal">Отмена</button>
+        <button type="button" class="btn btn-success no-print" onclick="window.print();">Печать</button>
+      </div>       
+    </div>
+  </div>
+</div>
+<!--// Modal --> 
+<!-- Content START -->
+    <div class="container">
+      <div class="info-line">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <noindex>
+<table width="100%" border="0">
+    <tbody>
+    <tr>
+        <td></td>
+        <td align="center">
+            <a target="_blank" rel="nofollow" href="http://www.cloudbar.org" alt="CloudBar.Org"/>
+                <div id="adapt-ad"></div>
+            </a>
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</noindex>
+
+<!-- VAPECRAFT ADAPT -->
+<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1217015471218733"
+     data-ad-slot="2461990402"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->              </div>
+          </div>
+      </div>
+    <div class="page-header recept-header">
+      <h1><span class="glyphicon glyphicon-list-alt"></span> Рецепт жидкости для электронных "сигарет"<br><small>&quot;Nicoticket Betelgeuse&quot;</small></h1>
+      <noindex>
+      <span class="at-link"><span class="glyphicon glyphicon-piggy-bank"></span>
+        Экономь, получая кэшбэк в магазинах <a href="https://homyanus.com/g/7khfs3jtus58edbc9bc98753afd1f1/?ulp=https%3A%2F%2Fletyshops.ru%2Fshops%2Ffasttech" target="_blank" rel="nofollow">FastTech</a> (2.5%), <a href="https://homyanus.com/g/7khfs3jtus58edbc9bc98753afd1f1/?ulp=https%3A%2F%2Fletyshops.ru%2Fshops%2Fgearbest" target="_blank" rel="nofollow">GearBest</a> (3%), <a href="https://homyanus.com/g/7khfs3jtus58edbc9bc98753afd1f1/?ulp=https%3A%2F%2Fletyshops.ru%2Fshops%2Faliexpress" target="_blank" rel="nofollow">AliExpress</a> (5%) 
+        и многих других, используя сервис <a href="https://katuhus.com/g/7khfs3jtus58edbc9bc98753afd1f1/" target="_blank" rel="nofollow">Lety Shops</a>! 
+        <span class="glyphicon glyphicon-piggy-bank"></span>
+      </span>
+      </noindex>
+    </div>
+    <div class="row">
+    <div class="left-recept-block col-sm-4 col-sm-push-8 col-md-3 col-md-push-0 col-lg-3">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- VAPECRAFT ADAPT-2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1217015471218733"
+     data-ad-slot="9738222808"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    </div>
+    <!-- Начало среднего блока с калькулятором -->
+    <div class="center-recept-block col-sm-8 col-sm-pull-4 col-md-6 col-md-pull-0 col-lg-6">
+      <!--Начало блока калькулятора -->
+<div class="calc-body" id="calc-body-id">
+<!--Начало шапки калькулятора -->
+<div class="calc-head" id="calc-head-id">
+  <div class="calc-head-elem" id="calc-head-elem-id1">VapeCraft.Ru<br>E-Juice<br>Calc Pro<br>Beta v 1.0<br>&copy; 2016</div>
+  <div class="calc-head-elem" id="calc-head-elem-id2"></div>
+  <div class="calc-head-elem" id="calc-head-elem-id3"></div>
+  <div class="calc-head-elem" id="calc-head-elem-id4"></div>
+  <div class="calc-head-elem" id="calc-head-elem-id5">
+
+ <div class="avatar-box" id="avatar-box-id1"><img class="ava-size" src="http://www.vapecraft.ru/images/uploads/no_avatar.png"  height="40px" alt="Пользователь SevaDon" title="Пользователь SevaDon" class="user-avatar">
+        </div>
+        <div class="author-box" id="author-box-id1"><a href="http://www.vapecraft.ru/main/user_recept/9903">SevaDon</a><br> от: 11.05.2017                </div>
+    </div>
+  <div class="calc-head-elem" id="calc-head-elem-id6"></div>
+</div>
+<!--Конец шапки калькулятора -->
+<!--Начало горизонтального блока "объем" + "название" -->
+<div class="calc-name" id="calc-name-id">
+  <div class="calc-name-elem-dimen" id="calc-name-elem-ml-id1" title="Общий объем жидкости в миллилитрах">100ml</div>
+  <div class="calc-name-elem-dimen" id="calc-name-elem-drop-id1" title="Общий объем жидкости каплях" style="display: none">100кап.</div>
+  <div class="calc-name-elem-dimen" id="calc-name-elem-mg-id1" title="Общий объем жидкости в граммах" style="display: none">100g.</div>
+  <div class="calc-name-elem-dimen" id="calc-name-elem-perc-id1" title="Общий объем жидкости в процентах" style="display: none">100%</div>
+  <div class="calc-name-elem" id="calc-name-elem-id2"></div>
+  <div class="calc-name-elem" id="calc-name-elem-id3"></div>
+  <div class="calc-name-elem" id="calc-name-elem-id4"></div>
+    <div class="calc-name-elem" id="calc-name-elem-id5">
+    <textarea id="title" name="nazva" placeholder="Укажите название рецепта..." maxlength="128" cols="60" rows="2" "required" oninput="inputPgVgAdVal();" disabled>Nicoticket Betelgeuse</textarea>
+    <script>
+        $('#title').data('login', 1);
+          </script>  </div>
+  <div class="calc-name-elem" id="calc-name-elem-id6"></div>
+</div>
+<!--Конец горизонтального блока "объем" + "название" -->
+<!--Начало основного большого блока -->   
+<div class="calc-digits-frame" id="calc-digits-frame-id1">
+<!--Начало левого блока с флаконом и единицами измерений -->   
+  <div class="calc-digits-frame-elem" id="calc-digits-frame-elem-id1">
+  <div class="calc-digits-frame-elem-main" id="calc-digits-frame-elem-main-id1">
+<!--Начало вертикального блока "капли", "пропорции никотина" и "единицы измерений"-->    
+    <div class="calc-digits-elem" id="calc-digits-elem-id1">
+      <div class="calc-left-side" id="calc-left-side-id1"></div>
+      <div class="calc-left-side" id="calc-left-side-id2" title="Количество капель в 1 ml">133 кап.<br>в 1 ml</div>
+      <div class="calc-left-side" id="calc-left-side-id3"></div>
+      <div class="calc-left-side" id="calc-left-side-id4" title="Пропорции добавляемого никотина"><span id="calc-left-side-id4-nic">100g</span><br><span id="calc-left-side-id4-nic-pg">60</span>-<span id="calc-left-side-id4-nic-vg">30</span>-<span id="calc-left-side-id4-nic-ad">10</span><br>PG/VG/AD</div>
+      <div class="calc-left-side" id="calc-left-side-id5"></div>
+<!--Начало блока с выбором единиц измерений-->               
+      <div class="calc-left-side" id="calc-left-side-id6" title="Выбор величин измерений">
+        <div class="calc-left-side-dimensions" id="calc-left-side-dimensions-id1"><img src="http://www.vapecraft.ru/assets/img/ml.png" alt="Миллилитры" title="Показать значения готовой жидкости в миллилитрах" width="19px" height="25px" class="dimension-ml" onclick="showDimMl();"></div>
+        <div class="calc-left-side-dimensions" id="calc-left-side-dimensions-id2"><img src="http://www.vapecraft.ru/assets/img/drops.png" alt="Капли" title="Показать значения готовой жидкости в каплях" width="19px" height="25px" class="dimension-drops" onclick="showDimDrop();"></div>
+        <div class="calc-left-side-dimensions" id="calc-left-side-dimensions-id3"><img src="http://www.vapecraft.ru/assets/img/gramms.png" alt="Граммы" title="Показать значения готовой жидкости в граммах" width="19px" height="26px" class="dimension-gramms" onclick="showDimMg();"></div>
+        <div class="calc-left-side-dimensions" id="calc-left-side-dimensions-id4"><img src="http://www.vapecraft.ru/assets/img/percent.png" alt="Проценты" title="Показать значения готовой жидкости в процентах" width="22px" height="25" class="dimension-percent" onclick="showDimPerc();"></div>
+      </div>
+<!--Конец блока с выбором единиц измерений-->             
+    </div>
+<!--Конец вертикального блока "капли", "пропорции никотина" и "единицы измерений"-->           
+    <div class="calc-digits-elem" id="calc-digits-elem-id2">&nbsp;</div>
+<!--Начало блока со значениями на флаконе -->        
+    <div class="calc-digits-elem" id="calc-digits-elem-id3">
+          <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id1"></div>
+          <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id2">
+          <div class="calc-bottle-digits-elem-nic" id="calc-bottle-digits-elem-nic-id1">Nic.</div>
+          <div class="calc-bottle-digits-elem-nic-dimen" id="calc-bottle-digits-elem-nic-ml-id2" title="Количество добавляемого никотина">99.99</div>
+          <div class="calc-bottle-digits-elem-nic-dimen" id="calc-bottle-digits-elem-nic-drop-id2" title="Количество добавляемого никотина" style="display: none">99.89</div>
+          <div class="calc-bottle-digits-elem-nic-dimen" id="calc-bottle-digits-elem-nic-mg-id2" title="Количество добавляемого никотина" style="display: none">99.89</div>
+          <div class="calc-bottle-digits-elem-nic-dimen" id="calc-bottle-digits-elem-nic-perc-id2" title="Количество добавляемого никотина" style="display: none">99.89</div>
+          <div class="calc-bottle-digits-elem-dimen" id="calc-bottle-digits-elem-nic-id3">ml</div>
+        </div>
+          <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id3">
+          <div class="calc-bottle-digits-elem-pg" id="calc-bottle-digits-elem-pg-id1">PG</div>
+          <div class="calc-bottle-digits-elem-pg-dimen" id="calc-bottle-digits-elem-pg-ml-id2" title="Количество добавляемого пропиленгликоля">99.99</div>
+          <div class="calc-bottle-digits-elem-pg-dimen" id="calc-bottle-digits-elem-pg-drop-id2" title="Количество добавляемого пропиленгликоля" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-pg-dimen" id="calc-bottle-digits-elem-pg-mg-id2" title="Количество добавляемого пропиленгликоля" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-pg-dimen" id="calc-bottle-digits-elem-pg-perc-id2" title="Количество добавляемого пропиленгликоля" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-dimen" id="calc-bottle-digits-elem-pg-id3">ml</div>
+        </div>
+          <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id4">
+          <div class="calc-bottle-digits-elem-vg" id="calc-bottle-digits-elem-vg-id1">VG</div>
+          <div class="calc-bottle-digits-elem-vg-dimen" id="calc-bottle-digits-elem-vg-ml-id2" title="Количество добавляемого глицерина">99.99</div>
+          <div class="calc-bottle-digits-elem-vg-dimen" id="calc-bottle-digits-elem-vg-drop-id2" title="Количество добавляемого глицерина" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-vg-dimen" id="calc-bottle-digits-elem-vg-mg-id2" title="Количество добавляемого глицерина" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-vg-dimen" id="calc-bottle-digits-elem-vg-perc-id2" title="Количество добавляемого глицерина" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-dimen" id="calc-bottle-digits-elem-vg-id3">ml</div>
+        </div>
+          <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id5">
+          <div class="calc-bottle-digits-elem-ad" id="calc-bottle-digits-elem-ad-id1">AD</div>
+          <div class="calc-bottle-digits-elem-ad-dimen" id="calc-bottle-digits-elem-ad-ml-id2" title="Количество добавляемой дистилированной воды">99.99</div>
+          <div class="calc-bottle-digits-elem-ad-dimen" id="calc-bottle-digits-elem-ad-drop-id2" title="Количество добавляемой дистилированной воды" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-ad-dimen" id="calc-bottle-digits-elem-ad-mg-id2" title="Количество добавляемой дистилированной воды" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-ad-dimen" id="calc-bottle-digits-elem-ad-perc-id2" title="Количество добавляемой дистилированной воды" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-dimen" id="calc-bottle-digits-elem-ad-id3">ml</div>
+        </div>
+        <div class="calc-bottle-digits-elem" id="calc-bottle-digits-elem-id6">
+          <div class="calc-bottle-digits-elem-fl" id="calc-bottle-digits-elem-fl-id1">FL.</div>
+          <div class="calc-bottle-digits-elem-fl-dimen" id="calc-bottle-digits-elem-fl-ml-id2" title="Количество добавляемых ароматизаторов">99.99</div>
+          <div class="calc-bottle-digits-elem-fl-dimen" id="calc-bottle-digits-elem-fl-drop-id2" title="Количество добавляемых ароматизаторов" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-fl-dimen" id="calc-bottle-digits-elem-fl-mg-id2" title="Количество добавляемых ароматизаторов" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-fl-dimen" id="calc-bottle-digits-elem-fl-perc-id2" title="Количество добавляемых ароматизаторов" style="display: none">99.99</div>
+          <div class="calc-bottle-digits-elem-dimen" id="calc-bottle-digits-elem-fl-id3">ml</div>
+          <input type="hidden" name="total_recept_fl" id="total_recept_fl">
+        </div>
+    </div>
+<!--Конец блока со значениями на флаконе -->             
+    <div class="calc-digits-elem" id="calc-digits-elem-id4">&nbsp;</div>
+    </div>
+<!--Начало блока пропорций готовой жидкости -->         
+      <div class="calc-ready-liquid" id="calc-ready-liquid-id1">
+        <div class="calc-footer-elem-ready-liquid" id="calc-footer-elem-ready-liquid-id1" title="Пропорции готовой жидкости">ПРОПОРЦИИ ЖИДКОСТИ:</div>
+        <div class="calc-footer-elem-ready-liquid" id="calc-footer-elem-ready-liquid-id2">
+          <div class="calc-footer-elem-ready-liquid-digits" id="calc-footer-elem-ready-liquid-digits-id1"><abbr title="Процент пропиленгликоля в готовой жидкости"><span id="pg-value">PG-50</span></abbr></div>
+          <div class="calc-footer-elem-ready-liquid-digits" id="calc-footer-elem-ready-liquid-digits-id2"><abbr title="Процент глицерина в готовой жидкости"><span id="vg-value">VG-40</span></abbr></div>
+          <div class="calc-footer-elem-ready-liquid-digits" id="calc-footer-elem-ready-liquid-digits-id3"><abbr title="Процент воды в готовой жидкости"><span id="ad-value">AD-10</span></abbr></div>
+        </div>
+        <div class="calc-footer-elem-ready-liquid" id="calc-footer-elem-ready-liquid-id3">
+        <div class="calc-footer-elem-ready-liquid-digits" id="calc-footer-elem-ready-liquid-digits-id4"><abbr title="Крепость никотина в готовой жидкости"><span id="nicotine-value">Nicotine - 3 mg</span></abbr></div>
+        </div>
+      </div>
+      <div class="recept-service">
+<div class="btn-group" id="service_btn_more">
+  <button type="button" class="btn btn-sm dropdown-toggle btn-primary move-tt" id="move-tt" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Дополнительные возможности"><span class="glyphicon glyphicon-plus-sign"></span> 
+  <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" data-toggle="modal" data-target="#simpleRecept"><span class="glyphicon glyphicon-list-alt"></span> Упрощенный вид и печать</a></li>
+
+  <li><a href="#" data-toggle="modal" data-target="#link2rec"><span class="glyphicon glyphicon-link"></span> Ссылка на рецепт</a></li>
+  </ul>       
+</div>
+<div class="rec-rating2">
+          <a title="Понравилось" class="like" id_recept="38088"><span class="badge b_like"><span class="glyphicon glyphicon-thumbs-up"></span> </span></a> / 
+          <a title="Не понравилось" class="dislike" id_recept="38088"><span class="badge b_dislike"><span class="glyphicon glyphicon-thumbs-down"></span> </span></a>
+        </div>      </div>
+<!--Конец блока пропорций готовой жидкости -->              
+  </div>
+<!--Конец левого блока с флаконом и единицами измерений -->     
+<!-- Начало блока правой табличной колонки-->      
+  <div class="calc-digits-frame-elem" id="calc-digits-frame-elem-id2">
+<!-- Начало таблицы основных ингр.-->      
+      <div class="calc-input-frame" id="calc-input-frame-id1">
+        <div class="calc-value-table-title" id="calc-value-table-title-id1" style="display:none;"><span class="calc-value-table-titles">Что хотим получить на выходе:</span></div>
+      <div class="calc-value-table" id="calc-value-table-id1" style="display:none;">
+        <div class="calc-value-table-size" id="calc-value-table-size-id1">Желаемый <abbr title="Укажите желаемый объем готовой жидкости">объем</abbr> готовой жидкости</div>
+        <div class="calc-value-table-size" id="calc-value-table-size-id2">
+          <input id="ready-size" class="form-control calc-input-value" type="text" value="30" name="ready-size" required="required" step="1" oninput="inputPgVgAdVal();">
+                </div>
+        <div class="calc-value-table-size" id="calc-value-table-size-id3">ml</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id2" style="display:none;">
+        <div class="calc-value-table-ready-nic" id="calc-value-table-ready-nic-id1">Желаемая никотиновая <abbr title="Укажите желаемую крепость никотина в готовой жидкости">крепость</abbr></div>
+        <div class="calc-value-table-ready-nic" id="calc-value-table-ready-nic-id2">
+          <input name="ready-nic" class="form-control calc-input-value" type="text" required="required" id="ready-nic" value="1.5" oninput="inputPgVgAdVal();">
+        </div>
+        <div class="calc-value-table-ready-nic" id="calc-value-table-ready-nic-id3">mg</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id3" style="display:none;">
+        <div class="calc-value-table-pg" id="calc-value-table-pg-id1"><abbr title="Укажите желаемое количество пропиленгликоля в готовой жидкости">PG</abbr> в готовой жидкости</div>
+        <div class="calc-value-table-pg" id="calc-value-table-pg-id2">
+          <input id="ready-pg" class="form-control calc-input-value" type="text" value="30" name="ready-pg" required="required" oninput="newPgVal(this.value); inputPgVgAdVal();">
+        </div>
+        <div class="calc-value-table-pg" id="calc-value-table-pg-id3">%</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id4" style="display:none;">
+        <div class="calc-value-table-vg" id="calc-value-table-vg-id1"><abbr title="Укажите желаемое количество глицерина в готовой жидкости">VG</abbr> в готовой жидкости</div>
+        <div class="calc-value-table-vg" id="calc-value-table-vg-id2">
+          <input id="ready-vg" class="form-control calc-input-value" type="text" value="70" name="ready-vg" required="required" oninput="newVgVal(this.value); inputPgVgAdVal();">
+        </div>
+        <div class="calc-value-table-vg" id="calc-value-table-vg-id3">%</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id5" style="display:none;">
+        <div class="calc-value-table-ad" id="calc-value-table-ad-id1"><abbr title="Укажите желаемое количество воды в готовой жидкости">AD</abbr> в готовой жидкости</div>
+        <div class="calc-value-table-ad" id="calc-value-table-ad-id2">
+          <input id="ready-ad" class="form-control calc-input-value" type="text" value="0" name="ready-ad" required="required" oninput="newAdVal(this.value); inputPgVgAdVal();">
+        </div>
+        <div class="calc-value-table-ad" id="calc-value-table-ad-id3">%</div>
+      </div>
+      <div class="calc-value-table-title" id="calc-value-table-title-id2" style="display:none;"><span class="calc-value-table-titles">Добавляемая основа:</span></div>
+      <div class="calc-value-table" id="calc-value-table-id6" style="display:none;">
+        <div class="calc-value-table-add-nic" id="calc-value-table-add-nic-id1"><abbr title="Укажите крепость никотина в добавляемой основе.">Крепость</abbr> никотина в основе</div>
+        <div class="calc-value-table-add-nic" id="calc-value-table-add-nic-id2">
+          <input id="add-nic-value" class="form-control calc-input-value" type="text" value="100" name="add-nic-value" required="required">
+        </div>
+        <div class="calc-value-table-add-nic" id="calc-value-table-add-nic-id3">mg</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id7" style="display:none;">
+        <div class="calc-value-table-pg-add-nic" id="calc-value-table-pg-add-nic-id1"><abbr title="Укажите процент пропиленгликоля в добавляемой основе">PG</abbr> в основе</div>
+        <div class="calc-value-table-pg-add-nic" id="calc-value-table-pg-add-nic-id2">
+          <input id="pg-add-nic" class="form-control calc-input-value" type="text" value="100" name="pg-add-nic" required="required" oninput="inputNicPgVgAdVal(); newNicPgVal(this.value); inputPgVgAdVal();">
+        </div>
+        <div class="calc-value-table-pg-add-nic" id="calc-value-table-pg-add-nic-id3">%</div>
+      </div>
+      <div class="calc-value-table" id="calc-value-table-id8" style="display:none;">
+        <div class="calc-value-table-vg-add-nic" id="calc-value-table-vg-add-nic-id1"><abbr title="Укажите процент глицерина в добавляемой основе">VG</abbr> в основе</div>
+          <div class="calc-value-table-vg-add-nic" id="calc-value-table-vg-add-nic-id2">
+            <input id="vg-add-nic" class="form-control calc-input-value" type="text" value="0" name="vg-add-nic" required="required" oninput="inputNicPgVgAdVal(); newNicVgVal(this.value); inputPgVgAdVal();">
+          </div>
+        <div class="calc-value-table-vg-add-nic" id="calc-value-table-vg-add-nic-id3">%</div>
+      </div>
+            <div class="calc-value-table" id="calc-value-table-id9" style="display:none;">
+        <div class="calc-value-table-ad-add-nic" id="calc-value-table-ad-add-nic-id1"><abbr title="Укажите процент воды в добавляемой основе">AD</abbr> в основе</div>
+          <div class="calc-value-table-ad-add-nic" id="calc-value-table-ad-add-nic-id2">
+            <input id="ad-add-nic" class="form-control calc-input-value" type="text" value="0" name="ad-add-nic" required="required" oninput="inputNicPgVgAdVal(); newNicAdVal(this.value); inputPgVgAdVal();">
+          </div>
+        <div class="calc-value-table-ad-add-nic" id="calc-value-table-ad-add-nic-id3">%</div>
+      </div>
+      <div class="calc-value-table-title" id="calc-value-table-title-id3" style="display:none;"><span class="calc-value-table-titles">Соотношение капель на 1 мл:</span></div>
+      <div class="calc-value-table" id="calc-value-table-id10" style="display:none;">
+        <div class="calc-value-table-drops-value" id="calc-value-table-drops-value-id1">Капель в 1 мл.</div>
+        <div class="calc-value-table-drops-value" id="calc-value-table-drops-value-id2">
+          <input id="drops-in-ml" class="form-control calc-input-value" type="text" value="33" name="drops-in-ml" required="required" disabled oninput="inputPgVgAdVal();">        </div>
+        <div class="calc-value-table-drops-value" id="calc-value-table-drops-value-id3">кап.</div>
+      </div>
+      <div class="calc-value-table-title" id="calc-value-table-title-id4"><span class="calc-value-table-titles" id="calc-value-table-titles-flavors">Ароматизаторы:</span></div>
+      
+      </div>
+<!-- Конец таблицы основных ингр.-->
+<!-- Начало таблицы добавленных ароматизаторов-->            
+            <div class="calc-flavors-table" id="calc-flavors-table-id1">
+
+
+
+
+<div class="calc-flavors-table-flavor"><div class="calc-flavors-del-no"></div>  <div class="calc-flavors-row-name" title="ОДОБРЕННЫЙ ароматизатор">
+            <input class="calc-flavors-row-name-approved" id="approved-fl-1" name="approved-fl-1" type="hidden" value="1">
+            <a class="fl-link" href="http://www.vapecraft.ru/main/flavor/6768">
+            <span class="name-label">Sweet Strawberry</span><br>
+            <span class="make-label">Capella Flavors</span>
+            </a>
+            <input class="calc-flavors-row-name-flavor" id="name-flavor-1" name="name-flavor-1" type="hidden" value="Sweet Strawberry">
+            <input class="calc-flavors-row-make-flavor" id="make-flavor-1" name="make-flavor-1" type="hidden" value="Capella Flavors">
+          </div><div class="calc-flavors-row-value">
+            <input name="flavor-1" class="form-control calc-flavor-input-value" id="flavor-1" type="text" value="7" required="required" disabled>
+
+            <div class="flavor-ml" id="f-ml-1">10</div>
+            <div class="flavor-drop" id="f-drop-1" type="text" value="999">999</div>
+            <div class="flavor-mg" id="f-mg-1">20</div>
+
+            <input name="flavor-in-ml-1" class="form-control fl-input-ml" id="flavor-in-ml-1" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-1" class="form-control fl-input-drop" id="flavor-in-drop-1" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-1" class="form-control fl-input-mg" id="flavor-in-mg-1" type="text" value="" required="required" disabled style="display: none;">
+            <input class="flavor-id" name="flavor-id-1" id="flavor-id-1" type="hidden" value="6768" required="required">
+
+            <input class="flavor-sel-base" name="flavor-base-1" id="flavor-base-1" type="hidden" value="0" required="required">
+            <input class="flavor-db-mg" name="flavor-in-mg-at-db-id-1" id="flavor-in-mg-at-db-id-1" type="hidden" value="0" required="required">
+          </div>
+          <div class="calc-flavors-row-dimen-rec">%
+          </div>
+          <div class="fl-dim-sml-ml">ml</div>
+          <div class="fl-dim-sml-drop"><span class="glyphicon glyphicon-tint"></span></div>
+          <div class="fl-dim-sml-mg">g</div>
+          <div class="calc-value-flavors-table-none">
+          </div>
+        </div><div class="calc-flavors-table-flavor"><div class="calc-flavors-del-no"></div>  <div class="calc-flavors-row-name" title="ОДОБРЕННЫЙ ароматизатор">
+            <input class="calc-flavors-row-name-approved" id="approved-fl-2" name="approved-fl-2" type="hidden" value="1">
+            <a class="fl-link" href="http://www.vapecraft.ru/main/flavor/6537">
+            <span class="name-label">Golden Pineapple</span><br>
+            <span class="make-label">Capella Flavors</span>
+            </a>
+            <input class="calc-flavors-row-name-flavor" id="name-flavor-2" name="name-flavor-2" type="hidden" value="Golden Pineapple">
+            <input class="calc-flavors-row-make-flavor" id="make-flavor-2" name="make-flavor-2" type="hidden" value="Capella Flavors">
+          </div><div class="calc-flavors-row-value">
+            <input name="flavor-2" class="form-control calc-flavor-input-value" id="flavor-2" type="text" value="4" required="required" disabled>
+
+            <div class="flavor-ml" id="f-ml-2">10</div>
+            <div class="flavor-drop" id="f-drop-2" type="text" value="999">999</div>
+            <div class="flavor-mg" id="f-mg-2">20</div>
+
+            <input name="flavor-in-ml-2" class="form-control fl-input-ml" id="flavor-in-ml-2" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-2" class="form-control fl-input-drop" id="flavor-in-drop-2" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-2" class="form-control fl-input-mg" id="flavor-in-mg-2" type="text" value="" required="required" disabled style="display: none;">
+            <input class="flavor-id" name="flavor-id-2" id="flavor-id-2" type="hidden" value="6537" required="required">
+
+            <input class="flavor-sel-base" name="flavor-base-2" id="flavor-base-2" type="hidden" value="0" required="required">
+            <input class="flavor-db-mg" name="flavor-in-mg-at-db-id-2" id="flavor-in-mg-at-db-id-2" type="hidden" value="0" required="required">
+          </div>
+          <div class="calc-flavors-row-dimen-rec">%
+          </div>
+          <div class="fl-dim-sml-ml">ml</div>
+          <div class="fl-dim-sml-drop"><span class="glyphicon glyphicon-tint"></span></div>
+          <div class="fl-dim-sml-mg">g</div>
+          <div class="calc-value-flavors-table-none">
+          </div>
+        </div><div class="calc-flavors-table-flavor"><div class="calc-flavors-del-no"></div>  <div class="calc-flavors-row-name" title="ОДОБРЕННЫЙ ароматизатор">
+            <input class="calc-flavors-row-name-approved" id="approved-fl-3" name="approved-fl-3" type="hidden" value="1">
+            <a class="fl-link" href="http://www.vapecraft.ru/main/flavor/280">
+            <span class="name-label">Raspberry</span><br>
+            <span class="make-label">Capella Flavors</span>
+            </a>
+            <input class="calc-flavors-row-name-flavor" id="name-flavor-3" name="name-flavor-3" type="hidden" value="Raspberry">
+            <input class="calc-flavors-row-make-flavor" id="make-flavor-3" name="make-flavor-3" type="hidden" value="Capella Flavors">
+          </div><div class="calc-flavors-row-value">
+            <input name="flavor-3" class="form-control calc-flavor-input-value" id="flavor-3" type="text" value="4" required="required" disabled>
+
+            <div class="flavor-ml" id="f-ml-3">10</div>
+            <div class="flavor-drop" id="f-drop-3" type="text" value="999">999</div>
+            <div class="flavor-mg" id="f-mg-3">20</div>
+
+            <input name="flavor-in-ml-3" class="form-control fl-input-ml" id="flavor-in-ml-3" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-3" class="form-control fl-input-drop" id="flavor-in-drop-3" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-3" class="form-control fl-input-mg" id="flavor-in-mg-3" type="text" value="" required="required" disabled style="display: none;">
+            <input class="flavor-id" name="flavor-id-3" id="flavor-id-3" type="hidden" value="280" required="required">
+
+            <input class="flavor-sel-base" name="flavor-base-3" id="flavor-base-3" type="hidden" value="0" required="required">
+            <input class="flavor-db-mg" name="flavor-in-mg-at-db-id-3" id="flavor-in-mg-at-db-id-3" type="hidden" value="0" required="required">
+          </div>
+          <div class="calc-flavors-row-dimen-rec">%
+          </div>
+          <div class="fl-dim-sml-ml">ml</div>
+          <div class="fl-dim-sml-drop"><span class="glyphicon glyphicon-tint"></span></div>
+          <div class="fl-dim-sml-mg">g</div>
+          <div class="calc-value-flavors-table-none">
+          </div>
+        </div><div class="calc-flavors-table-flavor"><div class="calc-flavors-del-no"></div>  <div class="calc-flavors-row-name" title="ОДОБРЕННЫЙ ароматизатор">
+            <input class="calc-flavors-row-name-approved" id="approved-fl-4" name="approved-fl-4" type="hidden" value="1">
+            <a class="fl-link" href="http://www.vapecraft.ru/main/flavor/290">
+            <span class="name-label">Sweet Mango</span><br>
+            <span class="make-label">Capella Flavors</span>
+            </a>
+            <input class="calc-flavors-row-name-flavor" id="name-flavor-4" name="name-flavor-4" type="hidden" value="Sweet Mango">
+            <input class="calc-flavors-row-make-flavor" id="make-flavor-4" name="make-flavor-4" type="hidden" value="Capella Flavors">
+          </div><div class="calc-flavors-row-value">
+            <input name="flavor-4" class="form-control calc-flavor-input-value" id="flavor-4" type="text" value="3" required="required" disabled>
+
+            <div class="flavor-ml" id="f-ml-4">10</div>
+            <div class="flavor-drop" id="f-drop-4" type="text" value="999">999</div>
+            <div class="flavor-mg" id="f-mg-4">20</div>
+
+            <input name="flavor-in-ml-4" class="form-control fl-input-ml" id="flavor-in-ml-4" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-4" class="form-control fl-input-drop" id="flavor-in-drop-4" type="text" value="" required="required" disabled style="display: none;">
+
+            <input name="flavor-4" class="form-control fl-input-mg" id="flavor-in-mg-4" type="text" value="" required="required" disabled style="display: none;">
+            <input class="flavor-id" name="flavor-id-4" id="flavor-id-4" type="hidden" value="290" required="required">
+
+            <input class="flavor-sel-base" name="flavor-base-4" id="flavor-base-4" type="hidden" value="0" required="required">
+            <input class="flavor-db-mg" name="flavor-in-mg-at-db-id-4" id="flavor-in-mg-at-db-id-4" type="hidden" value="0" required="required">
+          </div>
+          <div class="calc-flavors-row-dimen-rec">%
+          </div>
+          <div class="fl-dim-sml-ml">ml</div>
+          <div class="fl-dim-sml-drop"><span class="glyphicon glyphicon-tint"></span></div>
+          <div class="fl-dim-sml-mg">g</div>
+          <div class="calc-value-flavors-table-none">
+          </div>
+        </div>
+            </div>
+<!-- Конец таблицы добавленных ароматизаторов-->              
+<!-- Начало блока добавления ароматизаторов-->             
+<!-- Конец блока добавления ароматизаторов-->               
+<!-- Начало блока добавления вкусов-->               
+<div class="tastes-block" id="tastes-block-id1">
+<span class="label label-info" id="tastes-info">Вкусы в этом рецепте:</span>
+<div class="tastes-block-view">
+  <span class="badge recipe-tastes">- - - Не указаны автором - - -</span></b>
+        </div>
+                        <!--Начало блока заметки -->
+    <div class="notes-block">
+        <span class="label label-default" id="notes-info">Заметки для рецепта:</span>
+          <span class="badge notes-block-empty">- - - Не указаны автором - - -</span>    </div>
+    <div class="ap-media">
+        <a href="http://www.cloudbar.org?utm_source=vapecraft&utm_content=banner250x250" target="_blank"><img src="http://www.vapecraft.ru/assets/img/cloudbar-250x250.png" alt="CloudBar.Org" title="CloudBar.Org" width="250px" height="250px"></a>
+    </div>
+    <!--<div class="adb-welcome"><noindex><a href="javascript:ABN.ButtonClick();" rel="nofollow"><span class="glyphicon glyphicon-blackboard"></span> Разместить рекламу на VapeСraft</a></noindex></div>-->
+</div>
+<!-- Конец блока добавления вкусов-->             
+    </div>
+<!-- Конец блока правой табличной колонки-->         
+<!-- Конец блока таблицы-->  
+        </div>
+<!--Конец основного большого блока -->             
+    <div class="calc-digits-frame-elem" id="calc-digits-frame-elem-id3"></div>
+<!-- Конец правого края калькулятора-->        
+<!--Блок_для_вывода_ошибки_калькулятора <div id="ermsg"></div>-->
+    </div> 
+<!--Конец блока калькулятора -->   
+    </div>
+    <!--// Конец среднего блока с калькулятором -->
+
+    <div class="right-recept-block col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ADAPT 3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1217015471218733"
+     data-ad-slot="1295979207"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    </div>
+    </div>
+    <div class="row">
+      <div class="left-social-block col-sm-4 col-sm-push-8 col-md-3 col-md-push-0 col-lg-3"></div>
+      <div class="center-social-block col-sm-8 col-sm-pull-4 col-md-6 col-md-pull-0 col-lg-6">
+        <div class="social-btn-bar recept-social">
+          <span class="label label-info like-me recept-like"><span class="glyphicon glyphicon-heart"></span> Понравился VAPE CRAFT? Поделись с друзьями! <span class="glyphicon glyphicon-thumbs-up"></span></span>
+          <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+          <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+          <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,pinterest,twitter,blogger,lj,viber,whatsapp" data-image="http://www.vapecraft.ru/assets/img/vapecraft-logo.svg" data-counter="">
+          </div> 
+        </div>
+
+<!-- Блок комментариев -->
+          <div id="recept_comments">
+            <div class="no-print">
+              <b id="comment">Комментарии:</b><br>
+        <div class="transl">
+      На данный момент отсутствуют...        </div>
+       
+
+            </div>    
+          </div>
+<!-- //Блок комментариев -->
+        <div class="vk-widget-bar">
+          <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script> 
+          <div id="vk_groups"></div>
+          <script type="text/javascript">VK.Widgets.Group("vk_groups", {mode: 0, width: "456", height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 88466863);
+          </script>
+        </div>
+      </div>
+      <div class="right-social-block col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+    </div>     
+    </div><!-- /.container -->
+    <script>
+      $(document).ready ( function(){
+       inputPgVgAdVal();
+        
+  $('.del_comment').click(function(){
+    if (confirm("Удалить этот комментарий ?")) {
+      $.post("http://www.vapecraft.ru/main/del_comments/"+$(this).attr("id_comment"));
+      $(this).parent().parent().parent().remove();
+    }
+    return false;
+  });
+
+  $('.edit_comment').click(function() {
+    txt = $('#cmt_body-' + $(this).attr('id_comment')).text();
+    $('#cmt').text(txt);
+    $('#f_add').hide();
+    $('#f_edit').show();
+    $('#form_comment').attr('action', 'http://www.vapecraft.ru/main/edit_comment_recept');
+    $('input[name=comment_id]').val($(this).attr('id_comment'));
+    return false;
+  });
+      });
+    </script>
+    <script>
+    $(function() {
+      $( document ).tooltip();
+    });
+      $( ".move-tt, #move-tt" ).tooltip({
+        position: { my: "left+15 center", at: "right center" }
+      });    
+    </script>
+
+          <div class="container-fluid">
+           <div class="row footer">
+            <div class="footer-brand-box col-lg-3 col-md-3 col-sm-4 col-xs-8">
+              <div class="footer-logo">
+              <img src="http://www.vapecraft.ru/assets/img/vapecraft-logo.svg">
+              </div>
+              <div class="footer-brand-name"><span><a class="footer-brand" href="http://www.vapecraft.ru/main/index">VAPE&nbsp;CRAFT</a></span></div>
+            </div>
+            <div class="counters col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                <!-- Yandex.Metrika informer -->
+                    <a href="https://metrika.yandex.ru/stat/?id=28862150&amp;from=informer"
+                    target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/28862150/3_0_5386B9FF_336699FF_1_pageviews"
+                    style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:28862150,lang:'ru'});return false}catch(e){}"/></a>
+                <!-- /Yandex.Metrika informer -->
+                <!-- Yandex.Metrika counter -->
+                    <script type="text/javascript">
+                    (function (d, w, c) {
+                        (w[c] = w[c] || []).push(function() {
+                            try {
+                                w.yaCounter28862150 = new Ya.Metrika({id:28862150,
+                                        webvisor:true,
+                                        clickmap:true,
+                                        trackLinks:true,
+                                        accurateTrackBounce:true,
+                                        ut:"noindex"});
+                            } catch(e) { }
+                        });
+                        var n = d.getElementsByTagName("script")[0],
+                            s = d.createElement("script"),
+                            f = function () { n.parentNode.insertBefore(s, n); };
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+                        if (w.opera == "[object Opera]") {
+                            d.addEventListener("DOMContentLoaded", f, false);
+                        } else { f(); }
+                    })(document, window, "yandex_metrika_callbacks");
+                    </script>
+                    <noscript><div><img src="//mc.yandex.ru/watch/28862150?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <!-- /Yandex.Metrika counter -->
+                <!-- LiveInternet counter -->
+                    <script type="text/javascript">
+                    document.write("<a href='//www.liveinternet.ru/click' "+
+                    "target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+                    escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                    ";"+Math.random()+
+                    "' alt='' title='LiveInternet: показано число просмотров за 24"+
+                    " часа, посетителей за 24 часа и за сегодня' "+
+                    "border='0' width='88' height='31'><\/a>")
+                    </script>&nbsp;
+                <!-- /LiveInternet counter -->
+                <!-- Rating@Mail.ru logo -->
+                    <a href="http://top.mail.ru/jump?from=2627104">
+                    <img src="//top-fwz1.mail.ru/counter?id=2627104;t=295;l=1" 
+                    style="border:0;" height="31" width="38" alt="Рейтинг@Mail.ru" /></a>
+                <!-- //Rating@Mail.ru logo -->
+            </div>
+            <div class="footer-links-box col-lg-3 col-md-3 col-sm-2 col-xs-4">
+            <span class="footer-copyright">&copy; 2015-2017<br>www.vapecraft.ru </span>
+            </div>
+         </div>
+        </div>        
+<script src="http://www.vapecraft.ru/assets/js/rating.js"></script>
+  </body>
+</html>

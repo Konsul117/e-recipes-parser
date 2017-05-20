@@ -25,7 +25,8 @@
 		"yiisoft/yii2-swiftmailer": "~2.0.0",
 		"Evil1991/yii_custom": "dev-master",
 		"coderockr/php-query": "dev-master",
-		"konsul117/proxy-provider": "dev-master"
+		"konsul117/proxy-provider": "dev-master",
+		"guzzlehttp/guzzle": "^6.2"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "~2.0.0",

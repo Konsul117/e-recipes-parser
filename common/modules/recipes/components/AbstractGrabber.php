@@ -11,26 +11,10 @@ use yiiCustom\logger\LoggerStream;
 
 abstract class AbstractGrabber {
 
-	/** @var array Куки: название => значение */
-	public $cookies = [];
 
-	/** @var int Таймаут соединения со шлюзом */
-	public $connectTimeout = 5;
-
-	/** @var int Таймаут ожидания ответа после отправки команды на шлюз */
-	public $timeout = 15;
-
-	/** @var string UserAgent */
-	public $userAgent = 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0';
-
-	/** @var bool Использовать ли прокси */
-	public $useProxy = true;
 
 	/** @var bool Нужно ли обновлять уже загруженные ароматизаторы */
 	public $isNeedToUpdateFlavors = false;
-
-	/** @var string|null Путь к файлу для cookie, если null, то приём кук не будет осуществляться */
-	protected $cookieFile;
 
 	/** @var LoggerStream Логгер */
 	protected $logger;

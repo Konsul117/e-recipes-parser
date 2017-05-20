@@ -32,7 +32,6 @@ class GrabController extends Controller {
 		}
 
 //		$grabber->isNeedToUpdateFlavors = true;
-		$grabber->useProxy = true;
 
 		$grabber->start();
 	}

@@ -1,9 +1,14 @@
-# global codeception file to run tests from all apps
-include:
-    - common
-    - frontend
-    - backend
+actor: Tester
 paths:
-    log: console/runtime/logs
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
 settings:
+    bootstrap: _bootstrap.php
     colors: true
+    memory_limit: 1024M
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed

@@ -4,6 +4,7 @@ use common\modules\recipes\Recipes;
 use proxyProvider\components\FreeProxyListProvider;
 use proxyProvider\components\HideMeProvider;
 use proxyProvider\components\ProxyProviderPool;
+use yii\log\FileTarget;
 
 return [
 	'modules' => [
@@ -31,6 +32,20 @@ return [
 							'class' => HideMeProvider::class,
 						],
 					],
+				],
+			],
+		],
+	],
+	'components' => [
+		'log' => [
+			'targets' => [
+				[
+					'class'          => FileTarget::class,
+					'levels'         => ['info', 'trace'],
+					'categories'     => ['recipes'],
+					'logFile'        => '@runtime/logs/recipes.log',
+					'exportInterval' => 1,
+					'logVars'        => [],
 				],
 			],
 		],
