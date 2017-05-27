@@ -196,20 +196,28 @@ class RecipesSaver {
 	 */
 	protected function loadOrAddFlavorBrand($brandTitle) {
 		if (array_key_exists($brandTitle, $this->flavorsBrandsIdsInKeys) === false) {
-			$brand = new FlavorBrand();
+			$brand = FlavorBrand::findOne([
+				FlavorBrand::ATTR_TITLE => $brandTitle,
+			]);
 
-			$brand->title = $brandTitle;
+			if ($brand === null) {
+				RecipesLogger::add('Бренд отсутствует, добавляем: ' . $brandTitle);
 
-			if ($brand->validate() === false) {
-				RecipesLogger::add('Сохранение бренда невозможно, ошибки: ' . var_export($brand->errors, true));
+				$brand = new FlavorBrand();
 
-				return null;
-			}
+				$brand->title = $brandTitle;
 
-			if ($brand->save() === false) {
-				RecipesLogger::add('Сохранение бренда не выполнено: ' . var_export($brand->errors, true));
+				if ($brand->validate() === false) {
+					RecipesLogger::add('Сохранение бренда невозможно, ошибки: ' . var_export($brand->errors, true));
 
-				throw new ErrorException('Ошибка при сохранении бренда');
+					return null;
+				}
+
+				if ($brand->save() === false) {
+					RecipesLogger::add('Сохранение бренда не выполнено: ' . var_export($brand->errors, true));
+
+					throw new ErrorException('Ошибка при сохранении бренда');
+				}
 			}
 
 			$this->flavorsBrandsIdsInKeys[$brandTitle] = $brand->id;

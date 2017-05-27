@@ -15,6 +15,9 @@ use phpQueryObject;
  */
 class VapeCraftRecipesListPageParser implements RecipesListPageParserInterface {
 
+	/** Количество ссылок на рецепты, выводимых на странице */
+	const RECIPES_PER_PAGE = 30;
+
 	/**
 	 * Парсинг.
 	 *
@@ -47,6 +50,16 @@ class VapeCraftRecipesListPageParser implements RecipesListPageParserInterface {
 				RecipesLogger::add('Ошибки при валидации ссылки: ' . var_export($link->errors, true));
 			}
 		}
+
+		//Получаем максимальный номер страницы
+		$a = $phpQueryPage->find('div.pagination-bar li a:last');
+		$href = $a->attr('href');
+
+		$number = null;
+		if (preg_match('/&per_page=([0-9]+)/i', $href, $pregResult)) {
+			$number = $pregResult[1] / static::RECIPES_PER_PAGE;
+		}
+		$result->maxPagesCount = $number;
 
 		phpQuery::unloadDocuments();
 

@@ -41,7 +41,8 @@ class RecipeFlavor extends ActiveRecord {
 	 * @return ActiveQuery
 	 */
 	public function getFlavor() {
-		return $this->hasOne(Flavor::class, [Flavor::ATTR_ID => static::ATTR_FLAVOR_ID]);
+		return $this->hasOne(Flavor::class, [Flavor::ATTR_ID => static::ATTR_FLAVOR_ID])
+			->with(Flavor::REL_SOURCE_LINKS);
 	}
 	const REL_FLAVOR = 'flavor';
 
