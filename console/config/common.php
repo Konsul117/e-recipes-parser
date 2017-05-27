@@ -2,7 +2,7 @@
 return [
 	'id'            => 'console',
 	'controllerMap' => [
-		'migrate'        => console\controllers\MigrateController::class,
+		'migrate'        => \yiiCustom\console\controllers\MigrateController::class,
 		'moduleSettings' => yiiCustom\console\controllers\ModuleSettingsInitController::class,
 	],
 	'components'    => [

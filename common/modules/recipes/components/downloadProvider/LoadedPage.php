@@ -21,4 +21,7 @@ class LoadedPage {
 
 	/** @var string URL страницы */
 	public $url;
+
+	/** @var bool Страница загружена успешно */
+	public $isLoadedSuccess;
 }

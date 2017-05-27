@@ -83,7 +83,7 @@ class ELiquidRecipeParser implements RecipePageParserInterface {
 		}
 
 		if ($result->validate() === false) {
-			RecipesLogger::add('Рецепт невалиден: ' . var_export($result->errors, true));
+			RecipesLogger::add('Рецепт невалиден: ' . var_export($result->errors, true) . ', аттрибуты: ' . var_export($result->attributes, true));
 
 			$result->isSuccess = false;
 

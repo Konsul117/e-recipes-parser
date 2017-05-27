@@ -45,9 +45,13 @@ class HttpDownloadProvider implements DownloadProviderInterface {
 					RecipesLogger::add('Прокси: ' . $proxy->getAddressString());
 					$result = $this->loadInner($url, $proxy);
 
+					if ($result->isLoadedSuccess === false) {
+						RecipesLogger::add('Загрузить страницу через прокси ' . $proxy->getAddressString() . ' не удалось');
+					}
+
 					Yii::$app->moduleManager->modules->recipes->proxyProviderPool->addProxyStat($proxy->id, ($result !== null));
 				}
-			} while ($result === null && $proxy !== null);
+			} while ($result->isLoadedSuccess === false && $proxy !== null);
 		}
 		else {
 			$result = $this->loadInner($url);
@@ -67,7 +71,8 @@ class HttpDownloadProvider implements DownloadProviderInterface {
 	protected function loadInner($url, ProxyData $proxy = null) {
 		$page = new LoadedPage();
 
-		$page->url = $url;
+		$page->isLoadedSuccess = false;
+		$page->url             = $url;
 
 		$curl = curl_init();
 
@@ -140,7 +145,8 @@ class HttpDownloadProvider implements DownloadProviderInterface {
 			return $page;
 		}
 
-		$page->body = $curlResult;
+		$page->isLoadedSuccess = true;
+		$page->body            = $curlResult;
 
 		return $page;
 	}

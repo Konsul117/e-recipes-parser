@@ -10,7 +10,7 @@ use yiiCustom\base\ActiveRecord;
 use yiiCustom\validators\FilterClearTextValidator;
 
 /**
- * Ароматизаторы.
+ * Ароматизатор.
  *
  * @property int    $id          Уникальный идентификатор
  * @property string $title       Название

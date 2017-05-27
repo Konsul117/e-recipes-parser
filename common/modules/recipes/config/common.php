@@ -38,6 +38,7 @@ return [
 	],
 	'components' => [
 		'log' => [
+			'flushInterval' => 1,
 			'targets' => [
 				[
 					'class'          => FileTarget::class,

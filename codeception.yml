@@ -12,3 +12,7 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+modules:
+    config:
+        Yii2:
+            configFile: 'tests/config/test.php'

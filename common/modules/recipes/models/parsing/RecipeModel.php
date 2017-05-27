@@ -25,7 +25,7 @@ class RecipeModel extends Model {
 	const ATTR_NOTES = 'notes';
 
 	/** @var FlavorModel[] Ароматизаторы  */
-	public $flavors;
+	public $flavors = [];
 	const ATTR_FLAVORS = 'flavors';
 
 	/** @var bool Парсинг выполнен успешно */

@@ -15,4 +15,10 @@ class RecipesPageModel extends Model {
 	/** @var bool Парсинг выполнен успешно */
 	public $isSuccess = false;
 
+	/** @var int Максимальное количество страниц */
+	public $maxPagesCount;
+
+	/** @var int Номер текущей страницы */
+	public $currentPageNumber;
+
 }

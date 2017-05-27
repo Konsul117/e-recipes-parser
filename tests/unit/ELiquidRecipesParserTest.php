@@ -13,7 +13,7 @@ class ELiquidRecipesParserTest extends \Codeception\Test\Unit {
 	/**
 	 * Тестирование страницы со списком ссылок на рецепты.
 	 */
-	public function testRecipesPage() {
+	public function testRecipesListPage() {
 		$pageContent = file_get_contents(Yii::getAlias(static::PAGES_PATH) . DIRECTORY_SEPARATOR . 'recipes-list_1.html');
 
 		$page = new LoadedPage();
@@ -103,5 +103,65 @@ class ELiquidRecipesParserTest extends \Codeception\Test\Unit {
 
 		//проверка идентификаторов аром
 		$this->assertEquals($result->flavors[0]->id, 165349, 'Арома #1: id неверен');
+	}
+
+	/**
+	 * Тестирование страницы рецептов №3
+	 */
+	public function testRecipePage3() {
+		$pageContent = file_get_contents(Yii::getAlias(static::PAGES_PATH) . DIRECTORY_SEPARATOR . 'recipe_3.html');
+
+		$page = new LoadedPage();
+
+		$page->url  = 'http://e-liquid-recipes.com/recipe/1473491/Bubble';
+		$page->body = $pageContent;
+
+		$parser = new ELiquidRecipeParser();
+
+		$result = $parser->parse($page);
+
+		$this->assertTrue($result->isSuccess, 'Парсинг завершился ошибкой');
+
+		$this->assertEquals($result->id, 1473491, 'Id не совпадает');
+		$this->assertEquals($result->title, 'Bubble', 'Название не совпадает');
+		$this->assertEquals(count($result->flavors), 4, 'Количество аром не совпадает');
+
+		//проверка концентраций
+		$this->assertEquals($result->flavors[0]->content, 0.01,   'Арома #1: концертрация неверна');
+
+		//проверка идентификаторов аром
+		$this->assertEquals($result->flavors[0]->id, 152098, 'Арома #1: id неверен');
+
+		$this->assertEquals($result->flavors[1]->brandTitle, '', 'Название бренда не совпадает (должно быть пустым)');
+	}
+
+	/**
+	 * Тестирование страницы рецептов №4
+	 */
+	public function testRecipePage4() {
+		$pageContent = file_get_contents(Yii::getAlias(static::PAGES_PATH) . DIRECTORY_SEPARATOR . 'recipe_4.html');
+
+		$page = new LoadedPage();
+
+		$page->url  = 'http://e-liquid-recipes.com/recipe/1473372/*Strawberry%20cream%20-%20ROG*';
+		$page->body = $pageContent;
+
+		$parser = new ELiquidRecipeParser();
+
+		$result = $parser->parse($page);
+
+		$this->assertTrue($result->isSuccess, 'Парсинг завершился ошибкой');
+
+		$this->assertTrue($result->validate(), 'Рецепт невалиден: ' . var_export($result->errors, true));
+
+		$this->assertEquals($result->id, 1473372, 'Id не совпадает');
+		$this->assertEquals($result->title, '*Strawberry cream - ROG*', 'Название не совпадает');
+		$this->assertEquals(count($result->flavors), 5, 'Количество аром не совпадает');
+
+		//проверка концентраций
+		$this->assertEquals($result->flavors[0]->content, 0.015,   'Арома #1: концертрация неверна');
+
+		//проверка идентификаторов аром
+		$this->assertEquals($result->flavors[0]->id, 153229, 'Арома #1: id неверен');
 	}
 }

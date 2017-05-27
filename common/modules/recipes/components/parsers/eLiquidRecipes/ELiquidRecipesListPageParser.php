@@ -45,11 +45,17 @@ class ELiquidRecipesListPageParser implements RecipesListPageParserInterface {
 			}
 		}
 
-		phpQuery::unloadDocuments();
-
 		RecipesLogger::add('Получено ссылок: ' . count($result->recipeLinks));
 
 		$result->isSuccess = true;
+
+		//Получаем максимальный номер страницы
+		$liList = $phpQueryPage->find('div.pagination li');
+		$a = $liList->eq($liList->length - 2)->find('a');
+		$number = (int) $a->text();
+		$result->maxPagesCount = $number;
+
+		phpQuery::unloadDocuments();
 
 		return $result;
 	}

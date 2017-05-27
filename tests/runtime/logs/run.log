@@ -1,0 +1,1085 @@
+2017-05-20 12:28:46 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:28:57 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:29:25 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:30:38 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:30:38 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:41:44 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:41:44 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:41:52 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:41:52 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:42:40 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:42:40 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:43:10 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:43:10 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:43:48 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:43:48 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:46:05 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:46:47 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:48:22 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:49:31 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Migration failed. Directory specified in migrationPath doesn't exist: @app/migrations in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php:106
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/controllers/MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Controller.php(154): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('', Array)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /discs/d/web/e-recipes-parser/yii_test(23): yii\base\Application->run()
+#8 {main}
+2017-05-20 12:49:31 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-20 12:51:08 [-][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\console\Request::getAbsoluteUrl()' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/base/Component.php:290
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\base\Component->__call('getAbsoluteUrl', Array)
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#5 [internal function]: yii\log\Logger->flush(true)
+#6 {main}
+2017-05-23 15:46:49 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:47:19 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:47:40 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:48:23 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:49:44 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:55:52 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:56:10 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:56:29 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:56:47 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:57:25 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:57:49 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 15:57:57 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:00:59 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:01:10 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:01:28 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:01:59 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:02:08 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:03:48 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:04:00 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:06:47 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:09:31 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:09:48 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:10:27 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:10:34 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:12:17 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:13:35 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:14:11 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:18:10 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:18:39 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:18:55 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:19:36 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:21:57 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:26:33 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:27:04 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:27:39 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:27:58 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:28:50 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:28:56 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-23 16:29:21 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:39:12 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:39:18 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:40:42 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:41:54 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:42:06 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:43:21 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:43:33 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:45:23 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:47:42 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:47:58 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:48:10 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:48:18 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:48:22 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:53:42 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:54:50 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:55:15 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:58:03 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:58:09 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 12:58:27 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 13:00:08 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}
+2017-05-27 13:00:16 [][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'Unable to determine the request URI.' 
+
+in /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php:857
+
+Stack trace:
+#0 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(817): yii\web\Request->resolveRequestUri()
+#1 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/web/Request.php(802): yii\web\Request->getUrl()
+#2 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(151): yii\web\Request->getAbsoluteUrl()
+#3 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(50): yii\debug\LogTarget->collectSummary()
+#4 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2-debug/LogTarget.php(118): yii\debug\LogTarget->export()
+#5 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#6 /discs/d/web/e-recipes-parser/vendor/yiisoft/yii2/log/Logger.php(177): yii\log\Dispatcher->dispatch(Array, true)
+#7 [internal function]: yii\log\Logger->flush(true)
+#8 {main}

@@ -1,5 +1,7 @@
 <?php
-return [
+use yiiCustom\core\ConfigCollector;
+
+$test =  [
 	'id'         => 'tests',
 	'components' => [
 		'db' => [
@@ -17,3 +19,7 @@ return [
 		'moduleSettings' => yiiCustom\console\controllers\ModuleSettingsInitController::class,
 	],
 ];
+
+$config = ConfigCollector::getApplicationConfig();
+
+return \yii\helpers\ArrayHelper::merge($config, $test);
