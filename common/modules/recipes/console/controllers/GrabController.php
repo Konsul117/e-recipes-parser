@@ -33,6 +33,7 @@ class GrabController extends Controller {
 	 */
 	public function actionIndex($sourceId, $isResume = true) {
 		$sourceId = (int) $sourceId;
+		RecipesLogger::add('Начинаем выгрузку');
 		$this->sourceId = $sourceId;
 		Yii::$app->moduleManager->modules->recipes->currentSourceId = $sourceId;
 		$isResume = (bool)$isResume;
@@ -69,7 +70,7 @@ class GrabController extends Controller {
 
 		$saver = new RecipesSaver($sourceId);
 
-		$crawler->onRecipePage(function(LoadedPage $page) use ($recipeParser, $saver) {
+		$result = $crawler->onRecipePage(function(LoadedPage $page) use ($recipeParser, $saver) {
 //			$this->stdout('Страница рецепта: ' . $page->url . PHP_EOL);
 
 			$recipe = $recipeParser->parse($page);
@@ -91,6 +92,8 @@ class GrabController extends Controller {
 //			$this->stdout('Страница списка рецептов №' . $pageModel->currentPageNumber . ': ' . $page->url . PHP_EOL);
 		})
 		->start();
+
+		RecipesLogger::add('Выгрузка завершена: ' . ($result ? 'успешно' : 'неуспешно'));
 	}
 
 	/**
