@@ -11,4 +11,7 @@ use yiiCustom\base\Module;
  * @property-read ProxyProviderPool $proxyProviderPool Пул провайдеров прокси
  */
 class Recipes extends Module {
+
+	/** @var int|null Идентификатор текущего обрабатываемого источника. Если null, то данные не переданы */
+	public $currentSourceId;
 }

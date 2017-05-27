@@ -15,7 +15,7 @@ class RecipesLogger {
 	 * @param string $message Сообщение
 	 */
 	public static function add($message) {
-		Yii::info($message, 'recipes');
+		Yii::info($message, 'recipes' . (Yii::$app->moduleManager->modules->recipes->currentSourceId ? Yii::$app->moduleManager->modules->recipes->currentSourceId : ''));
 	}
 
 }

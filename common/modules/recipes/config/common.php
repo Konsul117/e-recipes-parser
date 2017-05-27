@@ -45,7 +45,7 @@ return [
 				[
 					'class'          => FileTarget::class,
 					'levels'         => ['info', 'trace'],
-					'categories'     => ['recipes'],
+					'categories'     => ['recipes', 'recipes1', 'recipes2'],
 					'logFile'        => '@runtime/logs/recipes.log',
 					'exportInterval' => 1,
 					'logVars'        => [],

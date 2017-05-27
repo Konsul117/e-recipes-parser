@@ -33,6 +33,7 @@ class GrabController extends Controller {
 	 */
 	public function actionIndex($sourceId, $isResume = true) {
 		$this->sourceId = $sourceId;
+		Yii::$app->moduleManager->modules->recipes->currentSourceId = $sourceId;
 		$isResume = (bool)$isResume;
 
 		$startPageNumber = 1;
