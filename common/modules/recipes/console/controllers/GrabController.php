@@ -2,10 +2,14 @@
 
 namespace common\modules\recipes\console\controllers;
 
+use common\modules\recipes\components\crawlers\AbstractCrawler;
 use common\modules\recipes\components\crawlers\ELiquidRecipesCrawler;
+use common\modules\recipes\components\crawlers\VapeCraftCrawler;
 use common\modules\recipes\components\downloadProvider\HttpDownloadProvider;
 use common\modules\recipes\components\downloadProvider\LoadedPage;
 use common\modules\recipes\components\parsers\eLiquidRecipes\ELiquidRecipeParser;
+use common\modules\recipes\components\parsers\RecipePageParserInterface;
+use common\modules\recipes\components\parsers\vapeCraft\VapeCraftRecipePageParser;
 use common\modules\recipes\components\RecipesLogger;
 use common\modules\recipes\components\RecipesSaver;
 use common\modules\recipes\models\parsing\RecipesPageModel;
@@ -18,12 +22,17 @@ use yii\console\Controller;
  */
 class GrabController extends Controller {
 
+	/** @var int Идентификатор источника */
+	protected $sourceId;
+
 	/**
 	 * Начать граббинг e-liquid-recipes.
 	 *
+	 * @param int  $sourceId Идентификатор источника
 	 * @param bool $isResume Нужно ли возобновить предыдущую сессию (начать с последней обработанной страницы)
 	 */
-	public function actionELR($isResume = true) {
+	public function actionIndex($sourceId, $isResume = true) {
+		$this->sourceId = $sourceId;
 		$isResume = (bool)$isResume;
 
 		$startPageNumber = 1;
@@ -37,10 +46,26 @@ class GrabController extends Controller {
 		}
 
 		$downloader = new HttpDownloadProvider();
-		$crawler = new ELiquidRecipesCrawler($downloader, $startPageNumber);
 
-		$recipeParser = new ELiquidRecipeParser();
-		$saver = new RecipesSaver(Source::E_LIQUID_RECIPES_ID);
+		$recipeParser = null;/** @var RecipePageParserInterface $recipeParser */
+		$crawler = null;/** @var AbstractCrawler $crawler */
+		switch($sourceId) {
+			case Source::E_LIQUID_RECIPES_ID:
+				$recipeParser = new ELiquidRecipeParser();
+				$crawler = new ELiquidRecipesCrawler($downloader, $startPageNumber);
+				break;
+
+			case Source::VAPE_CRAFT_ID:
+				$recipeParser = new VapeCraftRecipePageParser();
+				$crawler = new VapeCraftCrawler($downloader, $startPageNumber);
+				break;
+
+			default:
+				RecipesLogger::add('Неизвестный идентификатор источника: ' . $sourceId);
+				return;
+		}
+
+		$saver = new RecipesSaver($sourceId);
 
 		$crawler->onRecipePage(function(LoadedPage $page) use ($recipeParser, $saver) {
 //			$this->stdout('Страница рецепта: ' . $page->url . PHP_EOL);
@@ -100,6 +125,6 @@ class GrabController extends Controller {
 	 * @return string
 	 */
 	protected function getLastPageNumberCacheKey() {
-		return __METHOD__;
+		return __METHOD__ . $this->sourceId;
 	}
 }

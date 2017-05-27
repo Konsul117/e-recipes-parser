@@ -2,6 +2,8 @@
 
 use common\modules\recipes\Recipes;
 use proxyProvider\components\FreeProxyListProvider;
+use proxyProvider\components\GetProxyListProvider;
+use proxyProvider\components\GimmeProxyProvider;
 use proxyProvider\components\HideMeProvider;
 use proxyProvider\components\ProxyProviderPool;
 use yii\log\FileTarget;
@@ -18,16 +20,16 @@ return [
 							'class' => FreeProxyListProvider::class,
 							'token' => 'demo',
 						],
-//						[
-//							'class' => \common\modules\recipes\components\proxyProvider\GetProxyListProvider::class,
-//						],
-//						[
+						[
+							'class' => GetProxyListProvider::class,
+						],
+//						[//хрень
 //							'class' => \common\modules\recipes\components\proxyProvider\SpinProxiesProvider::class,
 //							'key' => '8vmnfdemafuwipo6sa7drwdqmbhmyw',
 //						],
-//						[
-//							'class' => \common\modules\recipes\components\proxyProvider\GimmeProxyProvider::class,
-//						],
+						[
+							'class' => GimmeProxyProvider::class,
+						],
 						[
 							'class' => HideMeProvider::class,
 						],
