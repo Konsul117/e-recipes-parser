@@ -87,7 +87,6 @@ class RecipesSaver {
 			}
 		}
 
-		RecipesLogger::add('Сохранённые аромы по идентификаторам источника: ' . var_export($savedFlavorsBySourcesIds, true));
 		foreach ($inputFlavors as $inputFlavor) {
 			//если арома уже сохранена, то обновляем её
 			if (array_key_exists($inputFlavor->id, $savedFlavorsBySourcesIds) === true) {

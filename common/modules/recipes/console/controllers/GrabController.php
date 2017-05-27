@@ -32,6 +32,7 @@ class GrabController extends Controller {
 	 * @param bool $isResume Нужно ли возобновить предыдущую сессию (начать с последней обработанной страницы)
 	 */
 	public function actionIndex($sourceId, $isResume = true) {
+		$sourceId = (int) $sourceId;
 		$this->sourceId = $sourceId;
 		Yii::$app->moduleManager->modules->recipes->currentSourceId = $sourceId;
 		$isResume = (bool)$isResume;
