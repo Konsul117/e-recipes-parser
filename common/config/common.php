@@ -62,12 +62,12 @@ $result = [
 	],
 ];
 
-if (YII_DEBUG) {
-	$result['bootstrap'][] = 'debug';
-	$result['modules']['debug'] = [
-		'class'      => \yii\debug\Module::class,
-		'allowedIPs' => ['*'],
-	];
-}
+//if (YII_DEBUG) {
+//	$result['bootstrap'][] = 'debug';
+//	$result['modules']['debug'] = [
+//		'class'      => \yii\debug\Module::class,
+//		'allowedIPs' => ['*'],
+//	];
+//}
 
 return $result;
