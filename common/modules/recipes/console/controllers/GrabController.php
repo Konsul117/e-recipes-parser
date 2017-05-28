@@ -17,6 +17,8 @@ use common\modules\recipes\models\Source;
 use Yii;
 use yii\console\Controller;
 
+declare(ticks=1);
+
 /**
  * Контроллер граббинга.
  */
@@ -24,6 +26,48 @@ class GrabController extends Controller {
 
 	/** @var int Идентификатор источника */
 	protected $sourceId;
+
+	/** @var resource Ссылка на ресурс файла блокировки */
+	protected $lockFileResource;
+
+	/**
+	 * @inheritdoc
+	 */
+	public function beforeAction($action) {
+		if (parent::beforeAction($action) === false) {
+			return false;
+		}
+
+		if ($this->isRunning() === true) {
+			$this->stdout('Процесс уже выполняется');
+
+			return false;
+		}
+
+		pcntl_signal(SIGTERM, [$this, 'onSignal']);
+
+		return true;
+	}
+
+	/**
+	 * Обработчик сигналов.
+	 *
+	 * @param int $sigNo Идентификатор сигнала
+	 */
+	public function onSignal($sigNo) {
+		$this->stdout('Процесс прерван по сигналу: ' . $sigNo);
+
+		die();
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function afterAction($action, $result) {
+		$this->clearLastPageNumber();
+
+		return parent::afterAction($action, $result);
+	}
 
 	/**
 	 * Начать граббинг e-liquid-recipes.
@@ -33,8 +77,15 @@ class GrabController extends Controller {
 	 */
 	public function actionIndex($sourceId, $isResume = true) {
 		$sourceId = (int) $sourceId;
-		RecipesLogger::add('Начинаем выгрузку');
 		$this->sourceId = $sourceId;
+
+		if ($this->isRunning() === true) {
+			$this->stdout('Процесс уже выполняется');
+
+			return;
+		}
+
+		RecipesLogger::add('Начинаем выгрузку');
 		Yii::$app->moduleManager->modules->recipes->currentSourceId = $sourceId;
 		$isResume = (bool)$isResume;
 
@@ -94,6 +145,8 @@ class GrabController extends Controller {
 		->start();
 
 		RecipesLogger::add('Выгрузка завершена: ' . ($result ? 'успешно' : 'неуспешно'));
+		$this->endRunning();
+		$this->clearLastPageNumber();
 	}
 
 	/**
@@ -125,11 +178,49 @@ class GrabController extends Controller {
 	}
 
 	/**
+	 * Очистка сохранённого значения последней обрабатываемой страницы.
+	 */
+	protected function clearLastPageNumber() {
+		$cacheKey = $this->getLastPageNumberCacheKey();
+
+		Yii::$app->cache->delete($cacheKey);
+	}
+
+	/**
 	 * Получение ключа кэша для номера последней обрабатываемой страницы.
 	 *
 	 * @return string
 	 */
 	protected function getLastPageNumberCacheKey() {
 		return __METHOD__ . $this->sourceId;
+	}
+
+	/**
+	 * Проверка, выполняетися ли граббинг для текущего источника в другом процессе.
+	 * Если не выполняется, то осуществляется блокировка для текущего процесса.
+	 *
+	 * @return bool
+	 */
+	protected function isRunning() {
+		$lockFilePath = Yii::getAlias('@runtime');
+
+		if (file_exists($lockFilePath) === false) {
+			mkdir($lockFilePath, 0777, true);
+		}
+
+		$lockFileDir = $lockFilePath . DIRECTORY_SEPARATOR . 'lock_' . $this->sourceId;
+
+		$this->lockFileResource = fopen($lockFileDir, "w+");
+
+		return (flock($this->lockFileResource, LOCK_EX | LOCK_NB) === false);
+	}
+
+	/**
+	 * Разблокировка по окончанию процесса.
+	 */
+	protected function endRunning() {
+		if ($this->lockFileResource !== null) {
+			fclose($this->lockFileResource);
+		}
 	}
 }
