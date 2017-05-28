@@ -39,7 +39,7 @@ class GrabController extends Controller {
 		}
 
 		if ($this->isRunning() === true) {
-			$this->stdout('Процесс уже выполняется');
+			$this->stdout('Процесс уже выполняется' . PHP_EOL);
 
 			return false;
 		}
