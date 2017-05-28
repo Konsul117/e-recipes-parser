@@ -85,8 +85,8 @@ class GrabController extends Controller {
 			return;
 		}
 
-		RecipesLogger::add('Начинаем выгрузку');
 		Yii::$app->moduleManager->modules->recipes->currentSourceId = $sourceId;
+		RecipesLogger::add('Начинаем выгрузку');
 		$isResume = (bool)$isResume;
 
 		$startPageNumber = 1;
