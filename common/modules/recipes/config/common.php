@@ -49,6 +49,7 @@ return [
 					'logFile'        => '@runtime/logs/recipes.log',
 					'exportInterval' => 1,
 					'logVars'        => [],
+					'maxLogFiles'    => 1000,
 				],
 			],
 		],
