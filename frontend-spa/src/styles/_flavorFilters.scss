@@ -1,8 +1,5 @@
 .flavor-filters {
 	font-size: 0.9em;
-	.filters-group-name {
-		padding-left: 1.5em;
-	}
 	ul {
 		> li {
 			font-size: 0.9em;
@@ -10,5 +7,22 @@
 	}
 	.checkbox {
 		margin: 0;
+	}
+
+	.brands {
+		.brands-list-container {
+			.brands-list {
+				max-height: 100px;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+		}
+	}
+
+	.brands,
+	.sources {
+		margin:  5px 0;
+		padding: 5px;
+		border:  1px solid #BBB;
 	}
 }

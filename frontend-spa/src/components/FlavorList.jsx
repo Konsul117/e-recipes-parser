@@ -15,7 +15,7 @@ const FlavorList = React.createClass({
 	getInitialState: function() {
 		return {
 			loadStatus: Constants.LOAD_STATUS_IN_PROCESS,
-			loadedFlavors: [],
+			loadedFlavors: new Map(),
 		}
 	},
 
@@ -42,8 +42,8 @@ const FlavorList = React.createClass({
 
 	onReferencesLoaded: function() {
 		let _brandsList = ReferencesStore.getBrandsList();
-		if (_brandsList.length > 0) {
-			this.brandsList = _brandsList;
+		if (_brandsList.size > 0) {
+			this.showingBrandsList = _brandsList;
 			this.loadFlavors();
 		}
 		else {
@@ -83,11 +83,15 @@ const FlavorList = React.createClass({
 	 * @param event
 	 * @return {boolean}
 	 */
-	onClickRecipe: function(event) {
+	onClickFlavor: function(event) {
 		event.preventDefault();
 
-		if (typeof(this.props.onSelectRecipe) === 'function') {
-			this.props.onSelectRecipe(event.target.parentElement.getAttribute('data-id'));
+		if (typeof(this.props.onSelectFlavor) === 'function') {
+			let id = parseInt(event.target.parentElement.getAttribute('data-id'));
+			let flavor = this.state.loadedFlavors.get(id);
+			if (flavor !== undefined) {
+				this.props.onSelectFlavor(flavor);
+			}
 		}
 	},
 
@@ -96,7 +100,7 @@ const FlavorList = React.createClass({
 			return;
 		}
 
-		if (this.state.loadedFlavors.length === 0) {
+		if (this.state.loadedFlavors.size === 0) {
 			return (
 				<div className="alert alert-info">
 					Ароматизаторы не найдены
@@ -104,25 +108,29 @@ const FlavorList = React.createClass({
 			);
 		}
 
+		let liArray = [];
+
+		this.state.loadedFlavors.forEach((flavor) => {
+			let brandName = null;
+			let brand = this.showingBrandsList.get(flavor.brandId);
+
+			if (brand !== undefined) {
+				brandName = brand.title;
+			}
+
+			liArray.push(<li key={flavor.id}>
+				<a href="" onClick={this.onClickFlavor} data-id={flavor.id}>
+					<span>{flavor.name}</span>{
+					(brandName !== null) ? (
+						<span className="brand-name">{brandName}</span>
+					) : ''
+				}</a>
+			</li>);
+		});
+
 		return (
 			<ul>
-				{
-					this.state.loadedFlavors.map((el) => {/** @param {FlavorItemResponse} el */
-						let brandName = null;
-						if (this.brandsList[el.brandId] !== undefined) {
-							brandName = this.brandsList[el.brandId].title;
-						}
-
-						return <li key={el.id}>
-							<a href="" onClick={this.onClickRecipe} data-id={el.id}>
-								<span>{el.name}</span>{
-								(brandName !== null) ? (
-									<span className="brand-name">{brandName}</span>
-								) : ''
-							}</a>
-						</li>
-					})
-				}
+				{liArray}
 			</ul>
 		);
 	},

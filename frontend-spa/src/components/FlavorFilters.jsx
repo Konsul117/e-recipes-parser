@@ -4,6 +4,7 @@ import FormControl from "react-bootstrap/lib/FormControl";
 import Constants from "../constants/Constants";
 import FlavorFiltersModel from "../models/FlavorFiltersModel";
 import ReferencesStore from "../stores/ReferencesStore";
+import BrandsList from "./BrandsList.jsx";
 
 const FlavorFilters = React.createClass({
 	getInitialState: function() {
@@ -17,14 +18,13 @@ const FlavorFilters = React.createClass({
 
 	componentDidMount: function() {
 		ReferencesStore.addLoadListener(() => {
-			let brandsList = ReferencesStore.getBrandsList();
 			let sourcesList = ReferencesStore.getSourcesList();
-			if (brandsList.length > 0 && sourcesList.length > 0) {
+			if (sourcesList.size > 0) {
+				//небольшое допущение - если загрузились источники - то загрузились и бренды и фильтр брендов, условно, готов к выводу
 				this.props.onLoadingReady();
 				this.setState({
-					brandsList: brandsList,
 					sourcesList: sourcesList,
-					loadStatus: Constants.LOAD_STATUS_FINISHED
+					loadStatus:  Constants.LOAD_STATUS_FINISHED
 				});
 			}
 			else {
@@ -77,43 +77,22 @@ const FlavorFilters = React.createClass({
 		this.props.onFiltersChange(this.filters);
 	},
 
-	/**
-	 * Рендер список брендов.
-	 *
-	 * @return {XML}
-	 */
-	renderBrandsList() {
-		if (this.state.loadStatus !== Constants.LOAD_STATUS_FINISHED) {
-			return '';
-		}
-
-		return (
-			<ul className="list-unstyled">
-				{
-					this.state.brandsList.map((el) => {
-						return <li key={el.id}>
-							<Checkbox value={el.id} onChange={this.handleBrandChange}>{el.title}</Checkbox>
-						</li>;
-					})
-				}
-			</ul>
-		);
-	},
-
 	renderSourcesList() {
 		if (this.state.loadStatus !== Constants.LOAD_STATUS_FINISHED) {
 			return '';
 		}
 
+		let buff = [];
+
+		this.state.sourcesList.forEach((el) => {
+			buff.push(<li key={el.id}>
+				<Checkbox value={el.id} onChange={this.handleSourceChange}>{el.title}</Checkbox>
+			</li>);
+		});
+
 		return (
 			<ul className="list-unstyled">
-				{
-					this.state.sourcesList.map((el) => {
-						return <li key={el.id}>
-							<Checkbox value={el.id} onChange={this.handleSourceChange}>{el.title}</Checkbox>
-						</li>;
-					})
-				}
+				{buff}
 			</ul>
 		);
 	},
@@ -154,22 +133,19 @@ const FlavorFilters = React.createClass({
 		return <FormControl onChange={this.onRecipeNameChange} />
 	},
 
-	render: function() {
-		let data = [
-			{value: 'apple', label: 'Apple'},
-			{value: 'orange', label: 'Orange'},
-			{value: 'banana', label: 'Banana', checked: true} // check by default
-		];
+	handleBrandsSelect: function(brandsIds) {
+		this.filters.brandsIds = brandsIds;
+		this.props.onFiltersChange(this.filters);
+	},
 
+	render: function() {
 		return (
 			<div className="flavor-filters">
 				<div className="flavor-name">
+					<label>Название ароматизатора</label>
 					{this.renderNameBlock()}
 				</div>
-				<div className="brands">
-					<div className="filters-group-name">Бренды:</div>
-					{this.renderBrandsList()}
-				</div>
+				<BrandsList onSelectChange={this.handleBrandsSelect}/>
 				<div className="sources">
 					<div className="filters-group-name">Источники:</div>
 					{this.renderSourcesList()}

@@ -68,6 +68,15 @@ class BaseDataController extends AjaxController {
 				->all(),
 		];
 
+		//приводим типы идентиифкаторов к int
+		foreach ($response->data['brands'] as $key => $brandRow) {
+			$response->data['brands'][$key]['id'] = (int)$response->data['brands'][$key]['id'];
+		}
+
+		foreach ($response->data['sources'] as $key => $brandRow) {
+			$response->data['sources'][$key]['id'] = (int)$response->data['sources'][$key]['id'];
+		}
+
 		return $response;
 	}
 }

@@ -32,7 +32,14 @@ class FlavorProvider {
 				let promise = new RequestPromise(Constants.LOAD_STATUS_FINISHED);
 				if (response.result === true) {
 					let flavors = response.data.flavors;/** @param {FlavorsResponse} promise */
-					callback(promise, flavors);
+
+					let flavorsMap = new Map();
+
+					flavors.forEach(function(flavor) {
+						flavorsMap.set(flavor.id, flavor);
+					});
+
+					callback(promise, flavorsMap);
 					// this.searchCache[query] = response.data.flavors;
 				}
 			},

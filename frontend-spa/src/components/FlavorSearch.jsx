@@ -20,8 +20,8 @@ const FlavorSearch = React.createClass({
 		});
 	},
 
-	selectRecipeHandler: function(id) {
-		console.log('Выбран ароматизатор ' + id);
+	flavorClickHandler: function(flavor) {
+		this.props.onFlavorClick(flavor);
 	},
 
 	flavorsReadyHandler: function() {
@@ -59,7 +59,7 @@ const FlavorSearch = React.createClass({
 			<div className="flavor-search">
 				<div className={wrapperClass}>
 					<FlavorFilters onFiltersChange={this.filtersChangeHandler} onLoadingReady={this.filtersReadyHandler}/>
-					<FlavorList filters={this.state.filters} onSelectRecipe={this.selectRecipeHandler} onLoadingReady={this.flavorsReadyHandler}/>
+					<FlavorList filters={this.state.filters} onSelectFlavor={this.flavorClickHandler} onLoadingReady={this.flavorsReadyHandler}/>
 				</div>
 				{messageBlock}
 			</div>

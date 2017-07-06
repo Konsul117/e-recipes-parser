@@ -1,6 +1,9 @@
-import keyMirror from "keymirror";
+class ApplicationConstants {
 
-export default keyMirror({
-	REFERENCES_LOAD_SUCCESS : null,
-	REFERENCES_LOAD_FAIL    : null,
-});
+	constructor() {
+		this.REFERENCES_LOAD_SUCCESS = 'REFERENCES_LOAD_SUCCESS';
+		this.REFERENCES_LOAD_FAIL    = 'REFERENCES_LOAD_FAIL';
+	}
+}
+
+export default new ApplicationConstants();

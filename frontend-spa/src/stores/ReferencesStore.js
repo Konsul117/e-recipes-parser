@@ -26,12 +26,10 @@ const ReferencesStore = Object.assign([], EventEmitter.prototype, {
 	},
 
 	addLoadListener(callback) {
-		console.log('addLoadListener');
 		this.on(EVENT_LOAD, callback);
 
 		//если данные уже загружены, то сразу вызываем коллбэк
 		if (_isDataLoaded === true) {
-			console.log('уже есть');
 			callback();
 		}
 	},
@@ -44,7 +42,6 @@ const ReferencesStore = Object.assign([], EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 	switch(action.type) {
 		case AppConstants.REFERENCES_LOAD_SUCCESS: {
-			console.log('Загрузили');
 			_isDataLoaded = true;
 			_brands = action.data.brands;
 			_sources = action.data.sources;
@@ -70,14 +67,14 @@ $.ajax({
 	dataType: 'json',
 	crossDomain: true,
 	success: (response)  => {
-		let brands = [];
-		let sources = [];
+		let brands = new Map();
+		let sources = new Map();
 		response.data.brands.forEach(function(val) {
-			brands[val.id] = val;
+			brands.set(val.id, val);
 		});
 
 		response.data.sources.forEach(function(val) {
-			sources[val.id] = val;
+			sources.set(val.id, val);
 		});
 
 		AppDispatcher.dispatch({
