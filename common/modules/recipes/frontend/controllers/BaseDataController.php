@@ -3,7 +3,9 @@
 namespace common\modules\recipes\frontend\controllers;
 
 use common\components\AjaxController;
+use common\modules\recipes\frontend\components\RecipesSearchProvider;
 use common\modules\recipes\frontend\models\flavorSearch\FlavorsRequest;
+use common\modules\recipes\frontend\models\recipes\RecipesSearchRequest;
 use common\modules\recipes\models\FlavorBrand;
 use common\modules\recipes\models\Source;
 use Yii;
@@ -68,13 +70,29 @@ class BaseDataController extends AjaxController {
 				->all(),
 		];
 
-		//приводим типы идентиифкаторов к int
-		foreach ($response->data['brands'] as $key => $brandRow) {
-			$response->data['brands'][$key]['id'] = (int)$response->data['brands'][$key]['id'];
-		}
+		return $response;
+	}
 
-		foreach ($response->data['sources'] as $key => $brandRow) {
-			$response->data['sources'][$key]['id'] = (int)$response->data['sources'][$key]['id'];
+	/**
+	 * Поиск рецептов.
+	 *
+	 * @return AjaxResponse
+	 */
+	public function actionFindRecipes() {
+		$response = new AjaxResponse();
+
+		$request = new RecipesSearchRequest();
+
+		$request->load(Yii::$app->request->get(), '');
+
+		$provider = new RecipesSearchProvider($request);
+
+		$result = $provider->search();
+
+		$response->result = ($result !== null);
+
+		if ($result !== null) {
+			$response->data = $result;
 		}
 
 		return $response;

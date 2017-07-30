@@ -133,7 +133,12 @@ const FlavorFilters = React.createClass({
 		return <FormControl onChange={this.onRecipeNameChange} />
 	},
 
-	handleBrandsSelect: function(brandsIds) {
+	/**
+	 * Обработка смены выбора брендов.
+	 *
+	 * @param {number[]} brandsIds Массив идентификаторров выбранных брендов
+	 */
+	onBrandsSelect: function(brandsIds) {
 		this.filters.brandsIds = brandsIds;
 		this.props.onFiltersChange(this.filters);
 	},
@@ -145,7 +150,7 @@ const FlavorFilters = React.createClass({
 					<label>Название ароматизатора</label>
 					{this.renderNameBlock()}
 				</div>
-				<BrandsList onSelectChange={this.handleBrandsSelect}/>
+				<BrandsList onSelectChange={this.onBrandsSelect}/>
 				<div className="sources">
 					<div className="filters-group-name">Источники:</div>
 					{this.renderSourcesList()}

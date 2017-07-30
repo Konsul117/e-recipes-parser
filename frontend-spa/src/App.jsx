@@ -1,29 +1,35 @@
 import React from "react";
+import ReactComponent from "react/lib/ReactComponent";
 import FlavorSearch from "./components/FlavorSearch.jsx";
-import RecipesFilters from "./components/RecipesFilters.jsx";
+import RecipesBlock from "./components/RecipesBlock.jsx";
+import ReferencesActions from "./actions/ReferencesActions";
 import "./styles/main.scss";
 
-const App = React.createClass({
+class App extends ReactComponent {
+
+	componentWillMount() {
+		ReferencesActions.loadReferences();
+	}
 
 	/**
 	 * @param {FlavorItemResponse} flavor
 	 */
-	flavorClickHandler: function(flavor) {
-		this.refs.recipesFilter.addNewFlavor(flavor);
-	},
+	flavorClickHandler(flavor) {
+		this.refs.recipesBlock.addNewFlavor(flavor);
+	}
 
-	render: function() {
+	render() {
 		return (
 			<div className='App'>
 				<div className="col-lg-3">
-					<FlavorSearch onFlavorClick={this.flavorClickHandler}/>
+					<FlavorSearch onFlavorClick={(flavor) => this.flavorClickHandler(flavor)}/>
 				</div>
 				<div className="col-lg-3">
-					<RecipesFilters ref="recipesFilter"/>
+					<RecipesBlock ref="recipesBlock"/>
 				</div>
 			</div>
 		);
-	},
-});
+	}
+}
 
 export default App;

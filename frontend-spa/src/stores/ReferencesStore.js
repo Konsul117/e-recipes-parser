@@ -1,95 +1,56 @@
-import {EventEmitter} from "events";
+import AppEventEmitter from "./AppEventEmitter";
 import AppDispatcher from "../dispatchers/AppDispatcher";
-import AppConstants from "../constants/ApplicationConstants";
-import config from "../config";
-import $ from "jquery";
-const LOAD_URL = '/recipes/base-data/get-references/';
+import Constants from "../constants/Constants";
 
+class ReferencesStore extends AppEventEmitter {
 
-let _brands = [];
-let _sources = [];
-let _isDataLoaded = false;
+	constructor() {
+		super();
 
-const EVENT_LOAD = 'load';
+		this._brands = [];
+		this._sources = [];
+		this._isDataLoaded = false;
 
-const ReferencesStore = Object.assign([], EventEmitter.prototype, {
+		AppDispatcher.register(action => {
+			switch(action.type) {
+				case Constants.REFERENCES_LOAD_SUCCESS: {
+					this._isDataLoaded = true;
+					this._brands = action.data.brands;
+					this._sources = action.data.sources;
+
+					this.emitLoad();
+
+					break;
+				}
+
+				case Constants.REFERENCES_LOAD_FAIL: {
+					this._isDataLoaded = false;
+					this._brands = [];
+
+					this.emitLoad();
+
+					break;
+				}
+			}
+		});
+	}
+
 	getBrandsList() {
-		return _brands;
-	},
+		return this._brands;
+	}
 
 	getSourcesList() {
-		return _sources;
-	},
-
-	emitLoad() {
-		this.emit(EVENT_LOAD);
-	},
+		return this._sources;
+	}
 
 	addLoadListener(callback) {
-		this.on(EVENT_LOAD, callback);
+		super.addLoadListener(callback);
 
 		//если данные уже загружены, то сразу вызываем коллбэк
-		if (_isDataLoaded === true) {
+		if (this._isDataLoaded === true) {
 			callback();
 		}
-	},
-
-	removeLoadListener(callback) {
-		this.removeListener(EVENT_LOAD, callback);
 	}
-});
+}
 
-AppDispatcher.register(function(action) {
-	switch(action.type) {
-		case AppConstants.REFERENCES_LOAD_SUCCESS: {
-			_isDataLoaded = true;
-			_brands = action.data.brands;
-			_sources = action.data.sources;
-
-			ReferencesStore.emitLoad();
-
-			break;
-		}
-
-		case AppConstants.REFERENCES_LOAD_FAIL: {
-			_isDataLoaded = false;
-			_brands = [];
-
-			ReferencesStore.emitLoad();
-
-			break;
-		}
-	}
-});
-
-$.ajax({
-	url: config.baseUrl + LOAD_URL,
-	dataType: 'json',
-	crossDomain: true,
-	success: (response)  => {
-		let brands = new Map();
-		let sources = new Map();
-		response.data.brands.forEach(function(val) {
-			brands.set(val.id, val);
-		});
-
-		response.data.sources.forEach(function(val) {
-			sources.set(val.id, val);
-		});
-
-		AppDispatcher.dispatch({
-			type: AppConstants.REFERENCES_LOAD_SUCCESS,
-			data: {
-				brands:  brands,
-				sources: sources
-			},
-		});
-	},
-	error: function() {
-		AppDispatcher.dispatch({
-			type: AppConstants.REFERENCES_LOAD_FAIL,
-		});
-	}
-});
-
-export default ReferencesStore;
+export default new ReferencesStore();

@@ -1,21 +1,27 @@
 import React from "react";
+import ReactComponent from "react/lib/ReactComponent";
 import ReferencesStore from "../stores/ReferencesStore";
 import FormControl from "react-bootstrap/lib/FormControl";
 import Constants from "../constants/Constants";
 import Checkbox from "react-bootstrap/lib/Checkbox";
 import Button from "react-bootstrap/lib/Button";
 
-const BrandsList = React.createClass({
-	getInitialState: function() {
-		this.selectedBrandsIds = [];
-		this.allBrandsList = new Map();
-		return {
-			showingBrandsList: ReferencesStore.getBrandsList(),
-			loadStatus:        Constants.LOAD_STATUS_IN_PROCESS
-		}
-	},
+class BrandsList extends ReactComponent {
+	constructor () {
+		super();
 
-	componentDidMount: function() {
+		this.state = {
+			showingBrandsList: ReferencesStore.getBrandsList(),//отфильтрованные бренды по текстовому поиску
+			loadStatus:        Constants.LOAD_STATUS_IN_PROCESS,//статус загрузки
+			selectedBrandsIds: new Map(),//идентификаторы выбранных брендов
+		};
+	}
+
+	componentWillMount() {
+		this.allBrandsList = new Map();
+	}
+
+	componentDidMount() {
 		ReferencesStore.addLoadListener(() => {
 			let brandsList = ReferencesStore.getBrandsList();
 
@@ -32,35 +38,44 @@ const BrandsList = React.createClass({
 				});
 			}
 		});
-	},
+	}
 
 	/**
 	 * Обработка выбора/снятия выбора галочки с бренда.
 	 *
-	 * @param {SyntheticEvent} event Событие
+	 * @param {SyntheticEvent} event   Событие
+	 * @param {number}         brandId Идентификатор бренда
 	 */
-	handleBrandSelect: function(event) {
-		let brandId = parseInt(event.target.getAttribute('value'));
+	handleBrandSelect(event, brandId) {
+		let selectedBrandsIds = this.state.selectedBrandsIds;
 		if (event.target.checked) {
-			this.selectedBrandsIds.push(brandId);
+			if (selectedBrandsIds.get(brandId) === undefined) {
+				selectedBrandsIds.set(brandId, true);
+
+				this.setState({
+					selectedBrandsIds: selectedBrandsIds
+				});
+			}
 		}
 		else {
-			let index = this.selectedBrandsIds.indexOf(brandId);
+			if (selectedBrandsIds.get(brandId) === true) {
+				selectedBrandsIds.delete(brandId);
 
-			if (index >= 0) {
-				this.selectedBrandsIds.splice(index, 1);
+				this.setState({
+					selectedBrandsIds: selectedBrandsIds
+				});
 			}
 		}
 
-		this.props.onSelectChange(this.selectedBrandsIds);
-	},
+		// this.props.onSelectChange(Array.from(this.selectedBrandsIds.keys()));
+	}
 
 	/**
 	 * Обработка смены названия фильтрации бренда.
 	 *
 	 * @param {SyntheticEvent} event Событие
 	 */
-	onBrandNameChange: function(event) {
+	onBrandNameChange(event) {
 		//фильтруем бренды
 		let query = event.target.value;
 		let resultBrands = new Map();
@@ -73,31 +88,19 @@ const BrandsList = React.createClass({
 		this.setState({
 			showingBrandsList: resultBrands,
 		});
-	},
+	}
 
-	checkBrandIsSelected(brandId) {
-		let result = false;
-
-		for(let id in this.selectedBrandsIds) {
-			result = (this.selectedBrandsIds[id] === brandId);
-
-			if (result === true) {
-				break;
-			}
-		}
-
-		return result;
-	},
-
-	unCheckAllHandler: function() {
-		this.selectedBrandsIds = [];
+	unCheckAllHandler() {
+		let selectedBrandsIds = this.state.selectedBrandsIds;
+		selectedBrandsIds.clear();
 		this.setState({
-			showingBrandsList: this.state.showingBrandsList
+			showingBrandsList: this.state.showingBrandsList,
+			selectedBrandsIds: selectedBrandsIds
 		});
-		this.props.onSelectChange(this.selectedBrandsIds);
-	},
+		this.props.onSelectChange([]);
+	}
 
-	render: function() {
+	render() {
 		if (this.state.loadStatus !== Constants.LOAD_STATUS_FINISHED) {
 			return <span className="glyphicon glyphicon-refresh"> Загрузка...</span>;
 		}
@@ -105,24 +108,27 @@ const BrandsList = React.createClass({
 		let brands = <div></div>;
 
 		if (this.state.showingBrandsList.size > 0) {
-			let buff = [];
-
-			this.state.showingBrandsList.forEach((el) => {
-				let isChecked = this.checkBrandIsSelected(el.id);
-
-				buff.push(<li key={el.id}>
-					<Checkbox value={el.id} onChange={this.handleBrandSelect} checked={isChecked}>{el.title}</Checkbox>
-				</li>);
-			});
-
 			brands =
 				<div className="brands-list-container">
 					<ul className="list-unstyled brands-list">
-						{buff}
+						{
+							Array.from(this.state.showingBrandsList.values()).map(brand => {
+								return (
+									<li key={brand.id}>
+										<Checkbox value={brand.id} onChange={(e) => this.handleBrandSelect(e, brand.id)} checked={this.state.selectedBrandsIds.get(brand.id) === true}>{brand.title}</Checkbox>
+									</li>
+								)
+							})
+						}
 					</ul>
-					<div className="check-controls">
-						<Button bsSize="xsmall" bsStyle="default" onClick={this.unCheckAllHandler}>Снять все</Button>
-					</div>
+					{
+						(this.state.selectedBrandsIds.size > 0)
+							? <div className="check-controls">
+								<Button bsSize="xsmall" bsStyle="default" onClick={() => this.unCheckAllHandler()}>Снять все</Button>
+							</div>
+							: null
+					}
+
 				</div>
 		}
 		else {
@@ -132,11 +138,11 @@ const BrandsList = React.createClass({
 		return (
 			<div className="brands">
 				<div className="filters-group-name">Бренды:</div>
-				<FormControl onChange={this.onBrandNameChange} />
+				<FormControl onChange={(e) => this.onBrandNameChange(e)} />
 				{brands}
 			</div>
 		);
 	}
-});
+}
 
 export default BrandsList;

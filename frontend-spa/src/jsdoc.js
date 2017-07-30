@@ -36,3 +36,25 @@
  * @property {number}   brandId    Идентификатор бренда
  * @property {number[]} sourcesIds Общее количество найденных варианатов
  */
+
+/**
+ * @typedef {Object} RecipesSearchRequest Модель запроса поиска рецептов
+ *
+ * @property {number[]} flavorsIds          Идентификаторы ароматизаторов для фильтрации
+ * @property {number}   flavorsFilterTypeId Идентификатор типа поиска
+ * @property {number}   limit               Лимит выдачи результатов
+ */
+
+/**
+ * @typedef {Object} RecipesResponse Модель ответа на запрос поиска рецептов.
+ *
+ * @property {RecipeItemResponse[]} recipes Рецепты
+ * @property {number} totalCount Общее количество найденных рецептов
+ */
+
+/**
+ * @typedef {Object} RecipeItemResponse Модель рецепта - ответ на запрос поиска.
+ *
+ * @property {number} id Идентификатор
+ * @property {string } title Название
+ */

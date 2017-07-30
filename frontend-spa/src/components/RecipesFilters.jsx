@@ -1,18 +1,26 @@
 import React from "react";
-import Constants from "../constants/Constants";
-import ReferencesStore from "../stores/ReferencesStore";
+import ReactComponent from "react/lib/ReactComponent";
+import Radio from "react-bootstrap/lib/Radio";
 
-const FlavorFilters = React.createClass({
-	getInitialState: function() {
-		return {
-			flavors: new Map()
+class RecipeFilters extends ReactComponent {
+	constructor() {
+		super();
+
+		//поиск рецептов со всеми выбранными ароматизаторами
+		this.FLAVORS_FILTER_TYPE_ALL_ID = 1;
+		//поиск рецептов с любым из выбранных ароматизаторов
+		this.FLAVORS_FILTER_TYPE_ANY_ID = 2;
+
+		this.state = {
+			flavors:             new Map(),
+			flavorsFilterTypeId: this.FLAVORS_FILTER_TYPE_ALL_ID
 		};
-	},
+	}
 
 	/**
 	 * @param {FlavorItemResponse} flavor
 	 */
-	addNewFlavor: function(flavor) {
+	addNewFlavor(flavor) {
 		let flavors = this.state.flavors;
 		let isNew = true;
 
@@ -22,38 +30,68 @@ const FlavorFilters = React.createClass({
 				flavors: flavors,
 			});
 		}
-	},
+	}
 
-	deleteFlavor: function(event) {
-		let id = parseInt(event.target.parentElement.getAttribute('data-id'));
+	deleteFlavor(flavorId) {
 		let flavors = this.state.flavors;
-
-		if (flavors.delete(id) === true) {
+		if (flavors.delete(flavorId) === true) {
 			this.setState({
 				flavors: flavors,
 			});
 		}
-	},
+	}
 
-	render: function() {
-		if (this.state.flavors.size > 0) {
-			let buff = [];
-			this.state.flavors.forEach((flavor) => {
-				buff.push(
-					<li key={flavor.id} data-id={flavor.id}>
-						<span>{flavor.name}</span>
-						<a href="#" onClick={this.deleteFlavor}>[x]</a>
-					</li>
-				);
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState !== this.state) {
+			this.props.onFilterChanged({
+				flavorsIds:          Array.from(this.state.flavors.keys()),
+				flavorsFilterTypeId: this.state.flavorsFilterTypeId
 			});
-			return <ul>
-				{buff}
-			</ul>;
-		}
-		else {
-			return <div>Пока ничего нет</div>;
 		}
 	}
-});
 
-export default FlavorFilters;
+	onFilterTypeChange(id) {
+		this.setState({
+			flavorsFilterTypeId: id
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				Фильтрация рецептов
+				{
+					(this.state.flavors.size > 0)
+					?
+						<div>
+							Ароматизаторы:
+							<ul>
+								{
+									Array.from(this.state.flavors.values()).map((flavor) => {
+										return <li key={flavor.id}>
+											<span>{flavor.name}</span>
+											<a href="#" onClick={() => this.deleteFlavor(flavor.id)}>[x]</a>
+										</li>
+									})
+								}
+							</ul>
+
+							<div className="form-group">
+								<Radio name="filter-type" checked={this.state.flavorsFilterTypeId === this.FLAVORS_FILTER_TYPE_ALL_ID} onChange={() => this.onFilterTypeChange(1)}>Все вместе</Radio>
+								<Radio name="filter-type" checked={this.state.flavorsFilterTypeId === this.FLAVORS_FILTER_TYPE_ANY_ID} onChange={() => this.onFilterTypeChange(2)}>Любой</Radio>
+							</div>
+						</div>
+					: null
+				}
+				{
+					//если ни один фильтр не выбран
+					(this.state.flavors.size === 0)
+						? <div className="alert alert-info">Выберите параметры фильтрации</div>
+						: null
+				}
+			</div>
+		);
+	}
+}
+
+export default RecipeFilters;
